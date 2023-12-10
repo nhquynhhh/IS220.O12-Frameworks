@@ -1,0 +1,72 @@
+﻿@model Ecommerce.Models.Blog
+
+@{
+    ViewData["Title"] = "Thêm mới bài đăng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBlog" asp-action="Index" class="breadcrumb-item">Quản lý bài đăng</a>
+            <span class="breadcrumb-item active">Thêm mới bài đăng</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Thêm mới bài đăng</h3>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-body">
+                <form asp-controller="AdminBlog" asp-action="Create" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row mb-3">
+                        <label asp-for="BlogTitle" class="col-sm-2 col-form-label font-weight-semibold">Tiêu đề</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogTitle" class="form-control" />
+                            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogImage" class="col-sm-2 col-form-label font-weight-semibold">Hình ảnh</label>
+                        <div class="col-sm-8">
+                            <input type="file" asp-for="BlogImage" class="form-control" name="file" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogSummary" class="col-sm-2 col-form-label font-weight-semibold">Tóm tắt bài đăng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogSummary" class="form-control" />
+                            <span asp-validation-for="BlogSummary" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogContent" class="col-sm-2 col-form-label font-weight-semibold">Nội dung bài đăng</label>
+                        <div class="col-sm-10">
+                            <textarea asp-for="BlogContent" class="form-control" rows="5"></textarea>
+                            <span asp-validation-for="BlogContent" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogAuthor" class="col-sm-2 col-form-label font-weight-semibold">Tác giả</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogAuthor" class="form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+                        <input type="submit" class="btn btn-warning" value="Tạo bài đăng"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

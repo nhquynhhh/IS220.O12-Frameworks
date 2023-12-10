@@ -1,0 +1,55 @@
+﻿@model Ecommerce.Models.Blog
+
+@{
+    ViewData["Title"] = "Xóa bài đăng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBlog" asp-action="Index" class="breadcrumb-item">Quản lý bài đăng</a>
+            <span class="breadcrumb-item active">Xóa bài đăng</span>
+        </nav>
+    </div>
+</div>
+
+<h4 class="text-danger">Xác nhận xóa bài đăng</h4>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin bài đăng</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>ID bài đăng:</td>
+                        <td class="text-dark font-weight-semibold">@Model.BlogId</td>
+                    </tr>
+                    <tr>
+                        <td>Tiêu đề bài đăng:</td>
+                        <td>@Model.BlogTitle</td>
+                    </tr>
+                    <tr>
+                        <td>Tóm tắt bài đăng:</td>
+                        <td>@Model.BlogSummary</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày đăng</td>
+                        <td>@Model.BlogCreatedDate</td>
+                    </tr>
+                    <tr>
+                        <td>Tác giả</td>
+                        <td>@Model.BlogAuthor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="BlogId" />
+    <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+    <input type="submit" value="Xóa bài đăng" class="btn btn-danger" />
+</form>

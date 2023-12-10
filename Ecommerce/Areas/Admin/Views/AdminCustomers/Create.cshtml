@@ -1,0 +1,75 @@
+﻿@model Ecommerce.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountId" class="control-label"></label>
+                <select asp-for="AccountId" class ="form-control" asp-items="ViewBag.AccountId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerEmail" class="control-label"></label>
+                <input asp-for="CustomerEmail" class="form-control" />
+                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhone" class="control-label"></label>
+                <input asp-for="CustomerPhone" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label"></label>
+                <input asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAvatar" class="control-label"></label>
+                <input asp-for="CustomerAvatar" class="form-control" />
+                <span asp-validation-for="CustomerAvatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerJoinDate" class="control-label"></label>
+                <input asp-for="CustomerJoinDate" class="form-control" />
+                <span asp-validation-for="CustomerJoinDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerBankAccount" class="control-label"></label>
+                <input asp-for="CustomerBankAccount" class="form-control" />
+                <span asp-validation-for="CustomerBankAccount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerBank" class="control-label"></label>
+                <input asp-for="CustomerBank" class="form-control" />
+                <span asp-validation-for="CustomerBank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

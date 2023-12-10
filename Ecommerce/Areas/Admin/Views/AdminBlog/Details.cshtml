@@ -1,0 +1,119 @@
+﻿@model Ecommerce.Models.Blog
+
+@{
+    ViewData["Title"] = "Chi tiết bài đăng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBlog" asp-action="Index" class="breadcrumb-item">Quản lý bài đăng</a>
+            <span class="breadcrumb-item active">Chi tiết bài đăng</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Chi tiết bài đăng</h3>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-body">
+                <form asp-route-id="@Model.BlogId">
+                    <div class="row mb-3">
+                        <label asp-for="BlogId" class="col-sm-2 col-form-label font-weight-semibold">ID</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogId" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label asp-for="BlogTitle" class="col-sm-2 col-form-label font-weight-semibold">Tiêu đề</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogTitle" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label font-weight-semibold">Hình ảnh</label>
+                        <div class="col-sm-8">
+                            <div class="form-control" id="blogImage">@Model.BlogImage</div>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-success" onclick="showImage()" id="btn-show">Xem hình ảnh</button>
+                            <button type="button" class="btn btn-primary" onclick="hideImage()" id="btn-hide" style="display: none;">Ẩn hình ảnh</button>
+                        </div>
+                    </div>
+
+                    <div id="imagePreview" style="display: none;">
+                        <!-- Image preview will be displayed here -->
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogSummary" class="col-sm-2 col-form-label font-weight-semibold">Tóm tắt bài đăng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogSummary" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogContent" class="col-sm-2 col-form-label font-weight-semibold">Nội dung bài đăng</label>
+                        <div class="col-sm-10">
+                            <textarea asp-for="BlogContent" class="form-control" rows="5" readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogCreatedDate" class="col-sm-2 col-form-label font-weight-semibold">Ngày đăng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogCreatedDate" class="form-control" type="text" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogModifiedDate" class="col-sm-2 col-form-label font-weight-semibold">Ngày sửa</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogModifiedDate" class="form-control" type="text" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label asp-for="BlogAuthor" class="col-sm-2 col-form-label font-weight-semibold">Tác giả</label>
+                        <div class="col-sm-10">
+                            <input asp-for="BlogAuthor" class="form-control" type="text" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var btnHide = document.getElementById('btn-hide');
+    var btnShow = document.getElementById('btn-show');
+
+    var imageUrl = document.getElementById('blogImage').innerHTML;
+    var imagePreview = document.getElementById('imagePreview');
+    imagePreview.innerHTML = '<img src="' + imageUrl + '" style="max-width:100%;" />';
+
+    function showImage() {
+        imagePreview.style.display = 'block';
+        btnHide.style.display = "block";
+        btnShow.style.display = "none";
+    }
+
+    function hideImage() {
+        imagePreview.style.display = 'none';
+        btnHide.style.display = "none";
+        btnShow.style.display = "block";
+    }
+</script>
+
+<div class="center">
+    <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+    <a asp-action="Edit" asp-route-id="@Model.BlogId" class="btn btn-warning">Chỉnh sửa</a>
+</div>
+

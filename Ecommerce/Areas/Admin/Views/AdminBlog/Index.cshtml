@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Ecommerce.Models.Blog>
+
+@{
+    ViewData["Title"] = "Quản lý bài đăng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBlog" asp-action="Index" class="breadcrumb-item active">Quản lý bài đăng</a>
+        </nav>
+    </div>
+</div>
+
+<h3 class="font-weight-bold mb-4" style="color: #0097B2">Quản lý bài đăng</h3>
+
+<div class="table-responsive text-nowrap">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Tìm kiếm bài đăng" id="searchInput">
+        <button class="btn btn-primary" type="button" id="searchButton">Tìm kiếm</button>
+        <button class="btn btn-default" type="button" id="resetButton">Reset</button>
+    </div>
+</div>
+
+<a class="btn btn-success m-r-5 mb-3 float-right" asp-area="Admin" asp-controller="AdminBlog" asp-action="Create">Thêm mới bài đăng</a>
+
+<table id="data-table" class="table">
+    <thead>
+        <tr class="text-center">
+            <th scope="col">ID</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Tên bài đăng</th>
+            <th scope="col">Ngày đăng</th>
+            <th scope="col">Tác giả</th>
+            <th scope="col">Tùy chọn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.BlogId</th>
+                        <td><img src="@item.BlogImage" style="width: 100px; height: 100px; object-fit: contain;" /></td>
+                        <td style="width: 250px; word-wrap:break-word; text-align:justify;">@item.BlogTitle</td>
+                        <td>@item.BlogCreatedDate</td>
+                        <td>@item.BlogAuthor</td>
+                        <td>
+                            <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminBlog" asp-action="Details" asp-route-id="@item.BlogId">Chi tiết</a>
+                            <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminBlog" asp-action="Edit" asp-route-id="@item.BlogId">Sửa</a>
+                            <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminBlog" asp-action="Delete" asp-route-id="@item.BlogId">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tr>
+    </tbody>
+</table>

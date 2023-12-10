@@ -1,0 +1,449 @@
+﻿@model IEnumerable<Ecommerce.Models.Product>
+
+@{
+    ViewData["Title"] = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container grid-6-col">
+    @* Side Bar Starts *@
+    @await Html.PartialAsync("_SideBarProducts.cshtml")
+    @* Side Bar Ends *@
+
+    <div class="product-list">
+        <div class="product-list-header">
+            <div class="product-list-title">
+                <h1 class="section-txt-title txt-bold" style="margin-top: 15px;">Sản phẩm</h1>
+            </div>
+            <div class="product-list-filter">
+                <div class="product-list-filter-content right">
+                    <label for="">Sắp xếp theo: </label>
+                    <select name="" id="">
+                        <option value="Increase">Giá thấp đến cao</option>
+                        <option value="Decrease">Giá cao đến thấp</option>
+                        <option value="Alphabet">A - Z</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="product-list-content grid-4-col">
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="preview-product">
+                <div class="product-ping width-common relative">
+                    <a href="" class="image-common relative">
+                        <div class="product-img sale">
+                            <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg" alt="" height="200" width="200">
+                            <span class="sale-percent">50%</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="width-common price-block">
+                                <strong class="discount-price txt-16">350.000 &#8363;</strong>
+                                <span class="original-price txt-12 right">700.000 &#8363;</span>
+                            </div>
+                            <div class="product-name-block">
+                                <h3 class="width-common pr-name sp-bottom-5">
+                                    <div class="product-name cyan-link">Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 20ml</div>
+                                </h3>
+                            </div>
+                            <div class="rate-block">
+                                <span class="rate-star left">4.5 <i class="fa-solid fa-star"></i></span>
+                                <span class="sold-product-number right">Đã bán: 100</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination-container">
+            <nav>
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+</div>
