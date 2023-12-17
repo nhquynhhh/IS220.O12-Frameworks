@@ -5,78 +5,75 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Customer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CustomerId" />
-            <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <select asp-for="AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
-                <span asp-validation-for="AccountId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerName" class="control-label"></label>
-                <input asp-for="CustomerName" class="form-control" />
-                <span asp-validation-for="CustomerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerEmail" class="control-label"></label>
-                <input asp-for="CustomerEmail" class="form-control" />
-                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerPhone" class="control-label"></label>
-                <input asp-for="CustomerPhone" class="form-control" />
-                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerAddress" class="control-label"></label>
-                <input asp-for="CustomerAddress" class="form-control" />
-                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerAvatar" class="control-label"></label>
-                <input asp-for="CustomerAvatar" class="form-control" />
-                <span asp-validation-for="CustomerAvatar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerJoinDate" class="control-label"></label>
-                <input asp-for="CustomerJoinDate" class="form-control" />
-                <span asp-validation-for="CustomerJoinDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerOrderQuantity" class="control-label"></label>
-                <input asp-for="CustomerOrderQuantity" class="form-control" />
-                <span asp-validation-for="CustomerOrderQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerBankAccount" class="control-label"></label>
-                <input asp-for="CustomerBankAccount" class="form-control" />
-                <span asp-validation-for="CustomerBankAccount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerBank" class="control-label"></label>
-                <input asp-for="CustomerBank" class="form-control" />
-                <span asp-validation-for="CustomerBank" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index" class="breadcrumb-item">Quản lý khách hàng</a>
+            <span class="breadcrumb-item active">Chỉnh sửa thông tin khách hàng</span>
+        </nav>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<h3>Chỉnh sửa thông tin khách hàng</h3>
+<br />
 
+<form asp-action="Edit" asp-route-id="@Model.CustomerId" asp-controller="AdminCustomers" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CustomerId"/>
+    <input type="hidden" asp-for="CustomerJoinDate" />
+    <input type="hidden" asp-for="CustomerOrderQuantity" />
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CustomerName">Tên khách hàng</label>
+                <input type="text" class="form-control" asp-for="CustomerName" placeholder="Tên khách hàng">
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="AccountId">ID tài khoản <span class="font-italic">(nếu có)</span></label>
+                <input type="text" class="form-control" asp-for="AccountId" placeholder="ID tài khoản">
+                <span asp-validation-for="AccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CustomerAddress">Địa chỉ</label>
+                <input type="text" class="form-control" asp-for="CustomerAddress" placeholder="Địa chỉ nhà">
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" asp-for="CustomerPhone">Số điện thoại</label>
+                    <input type="text" class="form-control" asp-for="CustomerPhone" placeholder="Số điện thoại">
+                    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" asp-for="CustomerEmail">Email</label>
+                    <input type="text" class="form-control" asp-for="CustomerEmail" placeholder="Email">
+                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CustomerAvatar">Hình đại diện</label>
+                <input name="file" type="file" class="form-control-file" asp-for="CustomerAvatar">
+                <span asp-validation-for="CustomerAvatar" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" asp-for="CustomerBank">Ngân hàng</label>
+                    <input type="text" class="form-control" asp-for="CustomerBank" placeholder="Ngân hàng">
+                    <span asp-validation-for="CustomerBank" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" asp-for="CustomerBankAccount">Số tài khoản</label>
+                    <input type="text" class="form-control" asp-for="CustomerBankAccount" placeholder="Số tài khoản">
+                    <span asp-validation-for="CustomerBankAccount" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="AdminCustomers" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Lưu thay đổi" />
+    </div>
+</form>

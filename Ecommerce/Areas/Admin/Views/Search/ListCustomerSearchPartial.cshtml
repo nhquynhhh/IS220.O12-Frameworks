@@ -1,0 +1,25 @@
+﻿@model List<Customer>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid rounded" src="@item.CustomerAvatar" style="max-width: 60px" alt="">
+                    <h6 class="m-b-0 m-l-10">@item.CustomerName</h6>
+                </div>
+            </td>
+            <td>@item.CustomerPhone</td>
+            <td>@item.CustomerAddress</td>
+            <td>@item.CustomerOrderQuantity</td>
+            <td>
+                <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId">Chi tiết</a>
+                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">Sửa</a>
+                <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Delete" asp-route-id="@item.CustomerId">Xóa</a>
+            </td>
+        </tr>
+    }
+}

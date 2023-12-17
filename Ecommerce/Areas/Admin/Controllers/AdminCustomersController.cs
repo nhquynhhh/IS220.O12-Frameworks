@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Ecommerce.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList.Core;
+using Ecommerce.Helpper;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -15,10 +16,12 @@ namespace Ecommerce.Areas.Admin.Controllers
     public class AdminCustomersController : Controller
     {
         private readonly EcommerceContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         public INotyfService _notyfService { get; }
 
-        public AdminCustomersController(EcommerceContext context, INotyfService notyfService)
+        public AdminCustomersController(IWebHostEnvironment webHostEnvironment, EcommerceContext context, INotyfService notyfService)
         {
+            _webHostEnvironment = webHostEnvironment;
             _context = context;
             _notyfService = notyfService;
         }
@@ -30,12 +33,17 @@ namespace Ecommerce.Areas.Admin.Controllers
             var pageSize = 10;
             var lsCustomers = _context.Customers
                 .AsNoTracking()
-                .OrderByDescending(x => x.CustomerId);
+                .Include(c => c.Account)
+                .Include(c => c.Orders)
+                .OrderBy(x => x.CustomerId);
+
             PagedList<Customer> models = new PagedList<Customer>(lsCustomers, pageNumber, pageSize);
 
             ViewBag.currentPage = pageNumber;
 
-            var ecommerceContext = _context.Customers.Include(c => c.Account);
+            var ecommerceContext = _context.Customers
+                .Include(c => c.Account)
+                .Include(c => c.Orders);
             return View(models);
         }
 
@@ -70,12 +78,35 @@ namespace Ecommerce.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,AccountId,CustomerName,CustomerEmail,CustomerPhone,CustomerAddress,CustomerAvatar,CustomerJoinDate,CustomerOrderQuantity,CustomerBankAccount,CustomerBank,IsActive")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,AccountId,CustomerName,CustomerEmail,CustomerPhone,CustomerAddress,CustomerAvatar,CustomerJoinDate,CustomerOrderQuantity,CustomerBankAccount,CustomerBank,IsActive")] Customer customer, IFormFile file)
         {
             if (ModelState.IsValid)
             {
+                customer.CustomerName = Utilities.ToTitleCase(customer.CustomerName);
+                if (file != null && file.Length > 0)
+                {
+                    // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
+                    var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "customers");
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    var fileRealPath = Path.Combine(uploads, fileName);
+
+                    using (var fileStream = new FileStream(fileRealPath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                    // Cập nhật tên tệp tin mới trong đối tượng Blog
+                    string fileInfo = new FileInfo(fileRealPath).Name;
+                    string filePath = "/uploads/customers/" + fileInfo;
+                    customer.CustomerAvatar = filePath;
+                }
+                customer.CustomerAddress = Utilities.ToTitleCase(customer.CustomerAddress);
+                customer.CustomerJoinDate = DateTime.Now;
+                customer.CustomerOrderQuantity = 0;
+                customer.IsActive = true;
+
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm khách hàng thành công");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", customer.AccountId);
@@ -104,7 +135,7 @@ namespace Ecommerce.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,AccountId,CustomerName,CustomerEmail,CustomerPhone,CustomerAddress,CustomerAvatar,CustomerJoinDate,CustomerOrderQuantity,CustomerBankAccount,CustomerBank,IsActive")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,AccountId,CustomerName,CustomerEmail,CustomerPhone,CustomerAddress,CustomerAvatar,CustomerJoinDate,CustomerOrderQuantity,CustomerBankAccount,CustomerBank,IsActive")] Customer customer, IFormFile file)
         {
             if (id != customer.CustomerId)
             {
@@ -115,8 +146,29 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 try
                 {
+                    customer.CustomerName = Utilities.ToTitleCase(customer.CustomerName);
+                    if (file != null && file.Length > 0)
+                    {
+                        // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
+                        var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "customers");
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                        var fileRealPath = Path.Combine(uploads, fileName);
+
+                        using (var fileStream = new FileStream(fileRealPath, FileMode.Create))
+                        {
+                            await file.CopyToAsync(fileStream);
+                        }
+                        // Cập nhật tên tệp tin mới trong đối tượng Blog
+                        string fileInfo = new FileInfo(fileRealPath).Name;
+                        string filePath = "/uploads/customers/" + fileInfo;
+                        customer.CustomerAvatar = filePath;
+                    }
+                    customer.CustomerAddress = Utilities.ToTitleCase(customer.CustomerAddress);
+                    customer.IsActive = true;
+
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Chỉnh sửa thông tin khách hàng thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -170,6 +222,7 @@ namespace Ecommerce.Areas.Admin.Controllers
             }
             
             await _context.SaveChangesAsync();
+            _notyfService.Success("Xóa khách hàng thành công");
             return RedirectToAction(nameof(Index));
         }
 

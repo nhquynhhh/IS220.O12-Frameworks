@@ -1,85 +1,109 @@
 ﻿@model Ecommerce.Models.Customer
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết khách hàng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Customer</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerEmail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerPhone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerPhone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerAvatar)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerAvatar)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerJoinDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerJoinDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerOrderQuantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerOrderQuantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerBankAccount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerBankAccount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerBank)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerBank)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Account)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Account.AccountId)
-        </dd>
-    </dl>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index" class="breadcrumb-item">Quản lý khách hàng</a>
+            <span class="breadcrumb-item active">Chi tiết khách hàng</span>
+        </nav>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<h3>Chi tiết khách hàng</h3>
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <div class="d-md-flex align-items-center">
+                    <div class="text-center text-sm-left ">
+                        <div class="avatar avatar-image" style="width: 150px; height:150px">
+                            <img src="@Model.CustomerAvatar" alt="">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm-left m-v-15 p-l-30">
+                        <h2 class="m-b-5">@Model.CustomerName</h2>
+                        <p class="text-opacity font-size-13">ID khách hàng: @Model.CustomerId</p>
+                        @if(Model.AccountId != null)
+                        {
+                            <p class="text-opacity font-size-13">ID tài khoản: @Model.AccountId</p>
+                        }
+                        <button class="btn btn-primary btn-tone" onclick="window.location.href='mailto:@Model.CustomerEmail'">Gửi email</button>
+                        <button class="btn btn-success btn-tone" onclick="window.location.href='tel:@Model.CustomerPhone'">Gọi điện</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="d-md-block d-none border-left col-1"></div>
+                    <div class="col">
+                        <ul class="list-unstyled m-t-10">
+                            <li class="row">
+                                <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-mail"></i>
+                                    <span>Email: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.CustomerEmail</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-phone"></i>
+                                    <span>Phone: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.CustomerPhone</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-sm-4 col-5 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-compass"></i>
+                                    <span>Địa chỉ: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.CustomerAddress</p>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5>Thông tin khác</h5>
+        <hr />
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <div class="font-weight-semibold">Ngân hàng</div>
+                <div class="form-control">@Model.CustomerBank</div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="font-weight-semibold">Số tài khoản</div>
+                <div class="form-control">@Model.CustomerBankAccount</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="font-weight-semibold">Số đơn hàng đã đặt</div>
+            <div class="form-control">@Model.CustomerOrderQuantity</div>
+        </div>
+
+        <div class="form-group">
+            <div class="font-weight-semibold">Ngày đăng ký</div>
+            <div class="form-control">@Model.CustomerJoinDate</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <a asp-action="Index" asp-controller="AdminCustomers" class="btn btn-primary">Quay lại</a> |
+    <a asp-action="Edit" asp-route-id="@Model.CustomerId" class="btn btn-warning">Chỉnh sửa</a>
 </div>
