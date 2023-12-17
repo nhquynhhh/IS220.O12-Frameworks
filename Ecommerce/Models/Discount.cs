@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ecommerce.Models;
 
@@ -21,7 +22,7 @@ public partial class Discount
 
     public int? DiscountValue { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public DateTime? DiscountStartDate { get; set; }
 

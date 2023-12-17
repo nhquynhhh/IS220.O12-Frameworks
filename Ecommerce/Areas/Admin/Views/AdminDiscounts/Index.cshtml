@@ -1,0 +1,97 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Ecommerce.Models.Discount>
+
+@{
+    int currentPage = ViewBag.currentPage;
+    ViewData["Title"] = "Quản lý khuyến mãi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Index" class="breadcrumb-item active">Quản lý khuyến mãi</a>
+        </nav>
+    </div>
+</div>
+
+<h3 class="font-weight-bold mb-4" style="color: #0097B2">Quản lý khuyến mãi</h3>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                <div class="d-md-flex">
+                </div>
+            </div>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-success" asp-action="Create" asp-controller="AdminDiscounts">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm khuyến mãi</span>
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive" style="overflow: hidden;">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên khuyến mãi</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Trạng thái</th>
+                        <th>Tùy chọn</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.DiscountId</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-center text-sm-left m-v-15">
+                                            <h6 class="m-b-5">@item.DiscountName</h6>
+                                            <p class="text-opacity font-size-13">Code: @item.DiscountCode</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.DiscountStartDate</td>
+                                <td>@item.DiscountEndDate</td>
+                                <td>
+                                    @if(item.IsActive == true)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <span class="badge badge-pill badge-green">Active</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <span class="badge badge-pill badge-red">Inactive</span>
+                                        </div>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Details" asp-route-id="@item.DiscountId">Chi tiết</a>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Edit" asp-route-id="@item.DiscountId">Sửa</a>
+                                    <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Delete" asp-route-id="@item.DiscountId">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <div class="float-right" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Index" />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

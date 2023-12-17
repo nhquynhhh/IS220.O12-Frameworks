@@ -1,0 +1,76 @@
+﻿@model Ecommerce.Models.Discount
+
+@{
+    ViewData["Title"] = "Xóa khuyến mãi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Index" class="breadcrumb-item">Quản lý khuyến mãi</a>
+            <span class="breadcrumb-item active">Xóa khuyến mãi</span>
+        </nav>
+    </div>
+</div>
+
+<h3 class="text-danger">Xác nhận xóa khuyến mãi</h3>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="d-md-flex align-items-center">
+                    <div class="text-center text-sm-left ">
+                        <div class="avatar avatar-image" style="width: 75px; height:75px">
+                            <img src="https://cdn-icons-png.flaticon.com/512/726/726476.png" alt="">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm-left m-v-15 p-l-30">
+                        <h2 class="m-b-5">@Model.DiscountName</h2>
+                        <p class="text-opacity font-size-13">ID khuyến mãi: @Model.DiscountId</p>
+                        <p class="text-opacity font-size-13">Code: @Model.DiscountCode</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="d-md-block d-none border-left col-1"></div>
+                    <div class="col">
+                        <ul class="list-unstyled m-t-10">
+                            <li class="row">
+                                <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-clock-circle"></i>
+                                    <span>Ngày bắt đầu: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.DiscountStartDate</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-clock-circle"></i>
+                                    <span>Ngày kết thúc: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.DiscountEndDate</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-sm-4 col-5 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-primary anticon anticon-star"></i>
+                                    <span>Giá trị: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.DiscountValue</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="DiscountId" />
+    <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+    <input type="submit" value="Xóa khuyến mãi" class="btn btn-danger" />
+</form>

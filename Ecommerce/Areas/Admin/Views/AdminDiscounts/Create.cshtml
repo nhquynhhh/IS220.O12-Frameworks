@@ -1,0 +1,121 @@
+﻿@model Ecommerce.Models.Discount
+
+
+@{
+    ViewData["Title"] = "Thêm khuyến mãi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Styles{
+    <link href="~/admin_assets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/admin_assets/summernote/summernote.css" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Index" class="breadcrumb-item">Quản lý khuyến mãi</a>
+            <span class="breadcrumb-item active">Thêm mới khuyến mãi</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Thêm mới khuyến mãi</h3>
+
+<form asp-action="Create" asp-controller="AdminDiscounts" method="post" accept-charset="UTF-8">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="DiscountCode">Mã khuyến mãi</label>
+                            <input type="text" class="form-control" asp-for="DiscountCode" placeholder="Mã khuyến mãi">
+                            <span asp-validation-for="DiscountCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="DiscountName">Tên khuyến mãi</label>
+                            <input type="text" class="form-control" asp-for="DiscountName" placeholder="Tên khuyến mãi">
+                            <span asp-validation-for="DiscountName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="DiscountDescription">Chi tiết khuyến mãi</label>
+                        <textarea class="summernote" asp-for="DiscountDescription" placeholder="Chi tiết khuyến mãi"></textarea>
+                        <span asp-validation-for="DiscountDescription" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="DiscountQuantity">Số lượng khuyến mãi</label>
+                            <input type="text" class="form-control" asp-for="DiscountQuantity" placeholder="Số lượng khuyến mãi">
+                            <span asp-validation-for="DiscountQuantity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="DiscountValue">Giá trị khuyến mãi</label>
+                            <input type="text" class="form-control" asp-for="DiscountValue" placeholder="Giá trị khuyến mãi">
+                            <span asp-validation-for="DiscountValue" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class ="font-weight-semibold" asp-for="DiscountStartDate">Ngày bắt đầu</label>
+                            <div class="input-affix m-b-10">
+                                <i class="prefix-icon anticon anticon-calendar"></i>
+                                <input asp-for="DiscountStartDate" type="text" class="form-control datepicker-input" placeholder="Chọn ngày bắt đầu">
+                            </div>
+                            <span asp-validation-for="DiscountStartDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="DiscountEndDate">Ngày kết thúc</label>
+                            <div class="input-affix m-b-10">
+                                <i class="prefix-icon anticon anticon-calendar"></i>
+                                <input asp-for="DiscountEndDate" type="text" class="form-control datepicker-input" placeholder="Chọn ngày kết thúc">
+                            </div>
+                            <span asp-validation-for="DiscountEndDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group d-flex align-items-center">
+                            <label class="font-weight-semibold" asp-for="IsActive">Trạng thái</label>
+                            <div class="switch m-r-10 m-l-15">
+                                <input type="checkbox" asp-for="IsActive" checked="">
+                                <label for="IsActive"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="AdminDiscounts" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Thêm khuyến mãi" />
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        $('.datepicker-input').datepicker();
+    </script>
+
+    <script src="~/admin_assets/vendors/select2/select2.min.js"></script>
+    <script src="~/admin_assets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="~/admin_assets/summernote/summernote-bs4.js"></script>
+
+    <script>
+
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Be Vietnam Pro'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });
+    </script>
+}
