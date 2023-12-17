@@ -7,13 +7,13 @@ public partial class Account
 {
     public int AccountId { get; set; }
 
-    public string? AccountName { get; set; }
+    public string AccountName { get; set; } = null!;
 
-    public string? AccountEmail { get; set; }
+    public string AccountEmail { get; set; } = null!;
 
     public string? AccountPassword { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public DateTime? AccountRegisterDate { get; set; }
 

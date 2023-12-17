@@ -7,9 +7,9 @@ public partial class Brand
 {
     public int BrandId { get; set; }
 
-    public string? BrandName { get; set; }
+    public string BrandName { get; set; } = null!;
 
-    public string? BrandOrigin { get; set; }
+    public string BrandOrigin { get; set; } = null!;
 
     public string? BrandImage { get; set; }
 
