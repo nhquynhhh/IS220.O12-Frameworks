@@ -7,7 +7,7 @@ public partial class SubCategory
 {
     public int SubCategoryId { get; set; }
 
-    public string? SubCategoryName { get; set; }
+    public string SubCategoryName { get; set; } = null!;
 
     public string? SubCategoryDescription { get; set; }
 
@@ -20,6 +20,8 @@ public partial class SubCategory
     public DateTime? SubCategoryModifiedDate { get; set; }
 
     public bool? IsActive { get; set; }
+
+    public string? SubCategorySlug { get; set; }
 
     public virtual Category? Category { get; set; }
 

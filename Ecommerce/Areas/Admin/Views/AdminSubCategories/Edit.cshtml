@@ -1,0 +1,50 @@
+﻿@model Ecommerce.Models.SubCategory
+
+@{
+    ViewData["Title"] = "Chỉnh sửa danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminCategory" asp-action="Index" class="breadcrumb-item">Quản lý danh mục con</a>
+            <span class="breadcrumb-item active">Chỉnh sửa danh mục</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Chỉnh sửa danh mục</h3>
+<br />
+
+<form asp-action="Edit" asp-controller="AdminSubCategories" asp-route-id="@Model.SubCategoryId" method="post" accept-charset="UTF-8">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="SubCategoryId" />
+    <input type="hidden" asp-for="SubCategoryCreatedDate" />
+    <input type="hidden" asp-for="IsActive" />
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="SubCategoryName">Tên danh mục</label>
+                <input type="text" class="form-control" asp-for="SubCategoryName" placeholder="Tên sản phẩm">
+                <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CategoryId">Danh mục cha</label>
+                <select class="custom-select" asp-for="CategoryId" asp-items="ViewBag.Category">
+                    <option value="0" disabled selected>Chọn danh mục cha</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="SubCategoryDescription">Mô tả danh mục</label>
+                <input type="text" class="form-control" asp-for="SubCategoryDescription" placeholder="Mô tả danh mục">
+                <span asp-validation-for="SubCategoryDescription" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="AdminSubCategories" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Lưu thay đổi" />
+    </div>
+</form>

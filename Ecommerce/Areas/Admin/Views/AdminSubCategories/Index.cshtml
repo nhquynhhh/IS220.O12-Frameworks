@@ -1,0 +1,73 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Ecommerce.Models.SubCategory>
+
+@{
+    ViewData["Title"] = "Quản lý danh mục con";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminSubCategories" asp-action="Index" class="breadcrumb-item active">Quản lý danh mục con</a>
+        </nav>
+    </div>
+</div>
+
+<h3 class="font-weight-bold mb-4" style="color: #0097B2">Quản lý danh mục con</h3>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+            </div>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-success" asp-controller="AdminSubCategories" asp-action="Create">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm danh mục</span>
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive" style="overflow: hidden;">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên danh mục</th>
+                        <th>Số lượng sản phẩm</th>
+                        <th>Ngày chỉnh sửa</th>
+                        <th>Tùy chọn</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SubCategoryId</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <h6 class="m-b-0" style="max-width:250px;">@item.SubCategoryName</h6>
+                                    </div>
+                                </td>
+                                <td>@item.ProductCount</td>
+                                <td>@item.SubCategoryModifiedDate</td>
+                                <td>
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminSubCategories" asp-action="Details" asp-route-id="@item.SubCategoryId">Chi tiết</a>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminSubCategories" asp-action="Edit" asp-route-id="@item.SubCategoryId">Sửa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <div class="float-right" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminSubCategories" asp-route-categoryID="@ViewBag.CurrentSubCatID" asp-action="Index" />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

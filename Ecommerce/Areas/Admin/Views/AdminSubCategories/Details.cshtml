@@ -1,0 +1,70 @@
+﻿@model Ecommerce.Models.SubCategory
+
+@{
+    ViewData["Title"] = "Chi tiết danh mục con";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminSubCategories" asp-action="Index" class="breadcrumb-item">Quản lý danh mục con</a>
+            <span class="breadcrumb-item active">Chi tiết danh mục</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Chi tiết danh mục</h3>
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-5">
+                <div class="avatar avatar-image" style="height: 75px; width: 75px">
+                    <img src="https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg">
+                </div>
+                <div class="m-l-15">
+                    <h5 class="m-b-0" style="color: #0097B2">@Model.SubCategoryName</h5>
+                    <p class="text-muted m-b-0">ID danh mục: @Model.SubCategoryId</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="font-weight-semibold">ID danh mục</div>
+            <div class="form-control">@Model.SubCategoryId</div>
+        </div>
+        <div class="form-group">
+            <div class="font-weight-semibold">Tên danh mục</div>
+            <div class="form-control">@Model.SubCategoryName</div>
+        </div>
+        <div class="form-group">
+            <div class="font-weight-semibold">Danh mục cha</div>
+            <div class="form-control">@Model.Category.CategoryName</div>
+        </div>
+        <div class="form-group">
+            <div class="font-weight-semibold">Mô tả danh mục</div>
+            <div class="form-control">@Model.SubCategoryDescription</div>
+        </div>
+        <div class="form-group">
+            <div class="font-weight-semibold">Số lượng sản phẩm</div>
+            <div class="form-control">@Model.ProductCount</div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="font-weight-semibold">Ngày tạo danh mục</label>
+                <div class="form-control">@Model.SubCategoryCreatedDate</div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="font-weight-semibold">Ngày chỉnh sửa gần nhất</label>
+                <div class="form-control">@Model.SubCategoryModifiedDate</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <a asp-action="Index" asp-controller="AdminSubCategories" class="btn btn-primary">Quay lại</a> |
+    <a asp-action="Edit" asp-controller="AdminSubCategories" asp-route-id="@Model.SubCategoryId" class="btn btn-warning">Chỉnh sửa</a>
+</div>
