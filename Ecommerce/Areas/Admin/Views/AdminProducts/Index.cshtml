@@ -22,9 +22,8 @@
     <div class="card-body">
         <div class="table-responsive text-nowrap">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" id="searchInput">
-                <button class="btn btn-primary" type="button" id="searchButton">Tìm kiếm</button>
-                <button class="btn btn-warning btn-tone m-r-5" type="button" id="resetButton">Reset</button>
+                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" id="keyword">
+                <button class="btn btn-warning btn-tone m-r-5" type="reset" id="resetButton">Reset</button>
             </div>
         </div>
 
@@ -32,32 +31,27 @@
             <div class="col-lg-8">
                 <div class="d-md-flex">
                     <div class="m-b-10 m-r-15">
-                        <select class="custom-select" style="min-width: 180px;">
-                            <option selected>Catergory</option>
-                            <option value="all">All</option>
-                            <option value="homeDeco">Home Decoration</option>
-                            <option value="eletronic">Eletronic</option>
-                            <option value="jewellery">Jewellery</option>
+                        <select class="custom-select" id="idcat" name="idcat" style="min-width: 200px;" asp-items="ViewBag.Category">
+                            <option disabled selected>Danh mục cha</option>
+                            <option value="0">Tất cả danh mục</option>
                         </select>
                     </div>
-                    <div class="m-b-10">
-                        <select class="custom-select" style="min-width: 180px;">
-                            <option selected>Status</option>
-                            <option value="all">All</option>
-                            <option value="inStock">In Stock </option>
-                            <option value="outOfStock">Out of Stock</option>
+                    <div class="m-b-10 m-r-15">
+                        <select class="custom-select" id="idsubcat" name="idsubcat" style="min-width: 200px;" asp-items="ViewBag.SubCategory">
+                            <option disabled selected>Danh mục con</option>
+                            <option value="0">Tất cả danh mục</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 text-right">
-                <button class="btn btn-success">
+                <a class="btn btn-success" asp-controller="AdminProducts" asp-action="Create">
                     <i class="anticon anticon-plus-circle m-r-5"></i>
                     <span>Thêm sản phẩm</span>
-                </button>
+                </a>
             </div>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive" style="overflow: hidden;">
             <table class="table table-hover e-commerce-table">
                 <thead>
                     <tr>
@@ -68,7 +62,7 @@
                         <th>Tùy chọn</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="records_table">
                     @if (Model != null)
                     {
                         foreach (var item in Model)
@@ -78,10 +72,16 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <img class="img-fluid rounded" src="@item.ProductImage" style="max-width: 60px" alt="">
-                                        <h6 class="m-b-0 m-l-10">@item.ProductName</h6>
+                                        <h6 class="m-b-0 m-l-10" style="max-width:250px;">@item.ProductName</h6>
                                     </div>
                                 </td>
-                                <td>@item.ProductSubCategory.SubCategoryName / @item.ProductCategory.CategoryName</td>
+                                @if(item.ProductSubCategory.SubCategoryName is not null){
+                                    @if(item.ProductCategory.CategoryName is not null)
+                                    {
+                                        <td>@item.ProductSubCategory.SubCategoryName / @item.ProductCategory.CategoryName</td>
+                                    }
+                                    
+                                }
                                 <td>
                                     @if (item.IsActive == true)
                                     {
@@ -101,7 +101,6 @@
                                 <td>
                                     <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a>
                                     <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Sửa</a>
-                                    <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Xóa</a>
                                 </td>
                             </tr>
                         }
@@ -110,9 +109,85 @@
             </table>
             <div class="float-right" aria-label="Page navigation example">
                 <ul class="pagination">
-                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" />
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminProducts" asp-route-subCategoryID="@ViewBag.CurrentSubCatID" asp-route-categoryID="@ViewBag.CurrentCatID" asp-action="Index" />
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            jQuery("#idcat").change(function () {
+                var catID = jQuery(this).children(":selected").attr("value");
+                catID = parseInt(catID);
+                $('#idcat option')
+                    .removeAttr('selected');
+                $("#idcat > [value=" + catID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/FilterCategory',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        productCategoryID: catID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+            jQuery("#idsubcat").change(function () {
+                var subcatID = jQuery(this).children(":selected").attr("value");
+                subcatID = parseInt(subcatID);
+                $('#idsubcat option')
+                    .removeAttr('selected');
+                $("#idsubcat > [value=" + subcatID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/FilterSubCategory',
+                    datatype: 'json',
+                    type: 'GET',
+                    data: {
+                        productSubCategoryID: subcatID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+           
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                $.ajax({
+                    url: '/Admin/Search/FindProduct/',
+                    datatype: "json",
+                    type: "POST",
+                    data: { keyword: strkeyword },
+                    async: true,
+                    success: function (results) {
+                        $("#records_table").html("");
+                        $("#records_table").html(results);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+        });
+    </script>
+
+}

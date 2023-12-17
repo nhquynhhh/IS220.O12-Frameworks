@@ -1,117 +1,159 @@
 ﻿@model Ecommerce.Models.Product
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Edit</h1>
+@section Styles{
+    <link href="~/admin_assets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/admin_assets/summernote/summernote.css" rel="stylesheet" />
+}
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ProductId" />
-            <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
-                <input asp-for="ProductName" class="form-control" />
-                <span asp-validation-for="ProductName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductBrandId" class="control-label"></label>
-                <select asp-for="ProductBrandId" class="form-control" asp-items="ViewBag.ProductBrandId"></select>
-                <span asp-validation-for="ProductBrandId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductCategoryId" class="control-label"></label>
-                <input asp-for="ProductCategoryId" class="form-control" />
-                <span asp-validation-for="ProductCategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductSubCategoryId" class="control-label"></label>
-                <select asp-for="ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductSubCategoryId"></select>
-                <span asp-validation-for="ProductSubCategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductOriginalPrice" class="control-label"></label>
-                <input asp-for="ProductOriginalPrice" class="form-control" />
-                <span asp-validation-for="ProductOriginalPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductDiscountPrice" class="control-label"></label>
-                <input asp-for="ProductDiscountPrice" class="form-control" />
-                <span asp-validation-for="ProductDiscountPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductInfo" class="control-label"></label>
-                <input asp-for="ProductInfo" class="form-control" />
-                <span asp-validation-for="ProductInfo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductBarcode" class="control-label"></label>
-                <input asp-for="ProductBarcode" class="form-control" />
-                <span asp-validation-for="ProductBarcode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductInStock" class="control-label"></label>
-                <input asp-for="ProductInStock" class="form-control" />
-                <span asp-validation-for="ProductInStock" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductSoldQuantity" class="control-label"></label>
-                <input asp-for="ProductSoldQuantity" class="form-control" />
-                <span asp-validation-for="ProductSoldQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductImage" class="control-label"></label>
-                <input asp-for="ProductImage" class="form-control" />
-                <span asp-validation-for="ProductImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductSideImage1" class="control-label"></label>
-                <input asp-for="ProductSideImage1" class="form-control" />
-                <span asp-validation-for="ProductSideImage1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductSideImage2" class="control-label"></label>
-                <input asp-for="ProductSideImage2" class="form-control" />
-                <span asp-validation-for="ProductSideImage2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductSideImage3" class="control-label"></label>
-                <input asp-for="ProductSideImage3" class="form-control" />
-                <span asp-validation-for="ProductSideImage3" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductCreatedDate" class="control-label"></label>
-                <input asp-for="ProductCreatedDate" class="form-control" />
-                <span asp-validation-for="ProductCreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductModifiedDate" class="control-label"></label>
-                <input asp-for="ProductModifiedDate" class="form-control" />
-                <span asp-validation-for="ProductModifiedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsFlashSale" class="control-label"></label>
-                <input asp-for="IsFlashSale" class="form-control" />
-                <span asp-validation-for="IsFlashSale" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item">Quản lý sản phẩm</a>
+            <span class="breadcrumb-item active">Chỉnh sửa sản phẩm</span>
+        </nav>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<h3>Chỉnh sửa sản phẩm</h3>
+<br />
 
+<form asp-action="Edit" asp-route-id="@Model.ProductId" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="ProductCreatedDate" />
+    <input type="hidden" asp-for="IsFlashSale" />
+    <input type="hidden" asp-for="ProductSoldQuantity" />
+    <div class="page-header no-gutters has-tab">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin chung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-edit-option">Thông tin chi tiết</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả sản phẩm</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-edit-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="ProductName">Tên sản phẩm</label>
+                        <input type="text" class="form-control" asp-for="ProductName" placeholder="Tên sản phẩm">
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="ProductOriginalPrice">Giá gốc</label>
+                            <input type="text" class="form-control" asp-for="ProductOriginalPrice" placeholder="Giá gốc">
+                            <span asp-validation-for="ProductOriginalPrice" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="ProductDiscountPrice">Giá giảm</label>
+                            <input type="text" class="form-control" asp-for="ProductDiscountPrice" placeholder="Giá giảm">
+                            <span asp-validation-for="ProductDiscountPrice" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="ProductCategoryId">Danh mục cha</label>
+                            <select class="custom-select" asp-for="ProductCategoryId" asp-items="ViewBag.Category">
+                                <option value="0" disabled selected>Chọn danh mục cha</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" asp-for="ProductSubCategoryId">Danh mục con</label>
+                            <select class="custom-select" asp-for="ProductSubCategoryId" asp-items="ViewBag.SubCategory">
+                                <option value="0" disabled selected>Chọn danh mục con</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="ProductImage">Chỉnh sửa hình ảnh chính</label>
+                        <input name="fImg" type="file" class="form-control-file" asp-for="ProductImage">
+                        <span asp-validation-for="ProductImage" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="product-edit-option">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="ProductInStock">Số lượng sản phẩm trong kho</label>
+                        <input type="text" class="form-control" asp-for="ProductInStock" placeholder="Số lượng sản phẩm trong kho">
+                        <span asp-validation-for="ProductInStock" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="ProductBarcode">Barcode</label>
+                        <input type="text" class="form-control" asp-for="ProductBarcode" placeholder="Barcode sản phẩm">
+                        <span asp-validation-for="ProductBarcode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="ProductBrandId">Thương hiệu</label>
+                        <select class="custom-select" asp-for="ProductBrandId" asp-items="ViewBag.Brand">
+                            <option value="0" disabled selected>Chọn thương hiệu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group d-flex align-items-center">
+                            <div class="font-weight-semibold">Trạng thái</div>
+                            
+                            <div class="switch m-r-10 m-l-15">
+                                <input type="checkbox" asp-for="IsActive" id="isActiveCheckbox">
+                                <label for="isActiveCheckbox"></label>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="product-edit-description">
+            <div class="card">
+                <div class="card-body">
+                    <label class="font-weight-semibold" asp-for="ProductInfo">Mô tả sản phẩm</label>
+                    <textarea class="summernote" asp-for="ProductInfo" placeholder="Mô tả chi tiết sản phẩm"></textarea>
+                    <span asp-validation-for="ProductInfo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Lưu thay đổi">
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/admin_assets/vendors/select2/select2.min.js"></script>
+    <script src="~/admin_assets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="~/admin_assets/summernote/summernote-bs4.js"></script>
+
+    <script>
+
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Be Vietnam Pro'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });
+    </script>
+}

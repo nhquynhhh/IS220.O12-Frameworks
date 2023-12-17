@@ -29,19 +29,15 @@ public partial class Product
 
     public string? ProductImage { get; set; }
 
-    public string? ProductSideImage1 { get; set; }
-
-    public string? ProductSideImage2 { get; set; }
-
-    public string? ProductSideImage3 { get; set; }
-
     public DateTime? ProductCreatedDate { get; set; }
 
     public DateTime? ProductModifiedDate { get; set; }
 
     public bool? IsFlashSale { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
+
+    public string? ProductSlug { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

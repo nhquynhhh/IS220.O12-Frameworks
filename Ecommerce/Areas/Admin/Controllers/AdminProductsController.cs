@@ -8,6 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Ecommerce.Models;
 using PagedList.Core;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Ecommerce.Helpper;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
+using System.Reflection.Metadata;
+
+#nullable disable
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -15,31 +20,86 @@ namespace Ecommerce.Areas.Admin.Controllers
     public class AdminProductsController : Controller
     {
         private readonly EcommerceContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public INotyfService _notyfService { get; }
 
-        public AdminProductsController(EcommerceContext context, INotyfService notyfService)
+        public AdminProductsController(IWebHostEnvironment webHostEnvironment, EcommerceContext context, INotyfService notyfService)
         {
+            _webHostEnvironment = webHostEnvironment;
             _context = context;
             _notyfService = notyfService;
         }
 
         // GET: Admin/AdminProducts
-        public IActionResult Index(int? page)
+        public IActionResult Index(int page = 1, int productCategoryID = 0, int productSubCategoryID = 0)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageNumber = page;
             var pageSize = 10;
-            var lsProducts = _context.Products
+            List<Product> lsProducts = new List<Product>();
+
+            if (productCategoryID != 0)
+            {
+                lsProducts = _context.Products
+                .AsNoTracking()
+                .Where(x => x.ProductCategoryId == productCategoryID)
+                .Include(x => x.ProductSubCategory)
+                .Include(x => x.ProductCategory)
+                .OrderBy(x => x.ProductId).ToList();
+            }
+            else if (productSubCategoryID != 0)
+            {
+                lsProducts = _context.Products
+                .AsNoTracking()
+                .Where(x => x.ProductSubCategoryId == productSubCategoryID)
+                .Include(x => x.ProductSubCategory)
+                .Include(x => x.ProductCategory)
+                .OrderBy(x => x.ProductId).ToList();
+            }
+            else if (productSubCategoryID == 0 || productCategoryID == 0)
+            {
+                lsProducts = _context.Products
                 .AsNoTracking()
                 .Include(x => x.ProductSubCategory)
                 .Include(x => x.ProductCategory)
-                .OrderByDescending(x => x.ProductId);
-            PagedList<Product> models = new PagedList<Product>(lsProducts, pageNumber, pageSize);
+                .OrderBy(x => x.ProductId).ToList();
+            }
+
+            PagedList<Product> models = new PagedList<Product>(lsProducts.AsQueryable(), pageNumber, pageSize);
+
+            ViewBag.CurrentCatID = productCategoryID;
+            ViewBag.CurrentSubCatID = productSubCategoryID;
 
             ViewBag.currentPage = pageNumber;
 
-            var ecommerceContext = _context.Products.Include(p => p.ProductBrand).Include(p => p.ProductSubCategory);
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+            ViewData["SubCategory"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryName");
+
+            var ecommerceContext = _context.Products
+                .Include(p => p.ProductBrand)
+                .Include(p => p.ProductSubCategory)
+                .Include(p => p.ProductCategory);
             return View(models);
+        }
+
+        public IActionResult FilterCategory(int productCategoryID = 0)
+        {
+            var url = $"/Admin/AdminProducts?productCategoryID={productCategoryID}";
+            if (productCategoryID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url});
+        }
+
+        public IActionResult FilterSubCategory(int productSubCategoryID = 0)
+        {
+            var url = $"/Admin/AdminProducts?productSubCategoryID={productSubCategoryID}";
+            if (productSubCategoryID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url});
         }
 
         // GET: Admin/AdminProducts/Details/5
@@ -53,6 +113,7 @@ namespace Ecommerce.Areas.Admin.Controllers
             var product = await _context.Products
                 .Include(p => p.ProductBrand)
                 .Include(p => p.ProductSubCategory)
+                .Include(p => p.ProductCategory)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
@@ -65,8 +126,9 @@ namespace Ecommerce.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            ViewData["ProductBrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId");
-            ViewData["ProductSubCategoryId"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryId");
+            ViewData["Brand"] = new SelectList(_context.Brands, "BrandId", "BrandName");
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+            ViewData["SubCategory"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryName");
             return View();
         }
 
@@ -75,16 +137,41 @@ namespace Ecommerce.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductBrandId,ProductCategoryId,ProductSubCategoryId,ProductOriginalPrice,ProductDiscountPrice,ProductInfo,ProductBarcode,ProductInStock,ProductSoldQuantity,ProductImage,ProductSideImage1,ProductSideImage2,ProductSideImage3,ProductCreatedDate,ProductModifiedDate,IsFlashSale,IsActive")] Product product)
+        public async Task<IActionResult> Create(IFormFile fImg, [Bind("ProductId,ProductName,ProductBrandId,ProductCategoryId,ProductSubCategoryId,ProductOriginalPrice,ProductDiscountPrice,ProductInfo,ProductBarcode,ProductInStock,ProductSoldQuantity,ProductImage,ProductCreatedDate,ProductModifiedDate,IsFlashSale,IsActive,ProductSlug")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.ProductName = Utilities.ToTitleCase(product.ProductName);
+                if (fImg != null && fImg.Length > 0)
+                {
+                    // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
+                    var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "products");
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(fImg.FileName);
+                    var fileRealPath = Path.Combine(uploads, fileName);
+
+                    using (var fileStream = new FileStream(fileRealPath, FileMode.Create))
+                    {
+                        await fImg.CopyToAsync(fileStream);
+                    }
+                    // Cập nhật tên tệp tin mới trong đối tượng Blog
+                    string fileInfo = new FileInfo(fileRealPath).Name;
+                    string filePath = "/uploads/products/" + fileInfo;
+                    product.ProductImage = filePath;
+                }
+
+                product.ProductSlug = Utilities.SEOUrl(product.ProductName);
+                product.IsFlashSale = false;
+                product.ProductCreatedDate = DateTime.Now;
+                product.ProductModifiedDate = DateTime.Now;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới sản phẩm thành công");
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductBrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.ProductBrandId);
-            ViewData["ProductSubCategoryId"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryId", product.ProductSubCategoryId);
+            ViewData["Brand"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.ProductBrandId);
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.ProductCategoryId);
+            ViewData["SubCategory"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryName", product.ProductSubCategoryId);
             return View(product);
         }
 
@@ -101,8 +188,10 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductBrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.ProductBrandId);
-            ViewData["ProductSubCategoryId"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryId", product.ProductSubCategoryId);
+
+            ViewData["Brand"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.ProductBrandId);
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.ProductCategoryId);
+            ViewData["SubCategory"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryName", product.ProductSubCategoryId);
             return View(product);
         }
 
@@ -111,7 +200,7 @@ namespace Ecommerce.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductBrandId,ProductCategoryId,ProductSubCategoryId,ProductOriginalPrice,ProductDiscountPrice,ProductInfo,ProductBarcode,ProductInStock,ProductSoldQuantity,ProductImage,ProductSideImage1,ProductSideImage2,ProductSideImage3,ProductCreatedDate,ProductModifiedDate,IsFlashSale,IsActive")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductBrandId,ProductCategoryId,ProductSubCategoryId,ProductOriginalPrice,ProductDiscountPrice,ProductInfo,ProductBarcode,ProductInStock,ProductSoldQuantity,ProductImage,ProductCreatedDate,ProductModifiedDate,IsFlashSale,IsActive,ProductSlug")] Product product, IFormFile fImg)
         {
             if (id != product.ProductId)
             {
@@ -122,7 +211,29 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 try
                 {
+                    product.ProductName = Utilities.ToTitleCase(product.ProductName);
+                    if (fImg != null && fImg.Length > 0)
+                    {
+                        // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
+                        var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "products");
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(fImg.FileName);
+                        var fileRealPath = Path.Combine(uploads, fileName);
+
+                        using (var fileStream = new FileStream(fileRealPath, FileMode.Create))
+                        {
+                            await fImg.CopyToAsync(fileStream);
+                        }
+                        // Cập nhật tên tệp tin mới trong đối tượng Blog
+                        string fileInfo = new FileInfo(fileRealPath).Name;
+                        string filePath = "/uploads/products/" + fileInfo;
+                        product.ProductImage = filePath;
+                    }
+
+                    product.ProductSlug = Utilities.SEOUrl(product.ProductName);
+                    product.ProductModifiedDate = DateTime.Now;
+
                     _context.Update(product);
+                    _notyfService.Success("Chỉnh sửa sản phẩm thành công");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -138,8 +249,9 @@ namespace Ecommerce.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductBrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.ProductBrandId);
-            ViewData["ProductSubCategoryId"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryId", product.ProductSubCategoryId);
+            ViewData["Brand"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.ProductBrandId);
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.ProductCategoryId);
+            ViewData["SubCategory"] = new SelectList(_context.SubCategories, "SubCategoryId", "SubCategoryName", product.ProductSubCategoryId);
             return View(product);
         }
 
@@ -154,6 +266,7 @@ namespace Ecommerce.Areas.Admin.Controllers
             var product = await _context.Products
                 .Include(p => p.ProductBrand)
                 .Include(p => p.ProductSubCategory)
+                .Include(p => p.ProductCategory)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
@@ -168,17 +281,8 @@ namespace Ecommerce.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Products == null)
-            {
-                return Problem("Entity set 'EcommerceContext.Products'  is null.");
-            }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-            }
-            
             await _context.SaveChangesAsync();
+            _notyfService.Success("Xóa thành công");
             return RedirectToAction(nameof(Index));
         }
 

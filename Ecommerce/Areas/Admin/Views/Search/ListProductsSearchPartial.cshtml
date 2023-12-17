@@ -1,0 +1,45 @@
+﻿@model List<Product>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid rounded" src="@item.ProductImage" style="max-width: 60px" alt="">
+                    <h6 class="m-b-0 m-l-10" style="max-width:250px;">@item.ProductName</h6>
+                </div>
+            </td>
+            @if (item.ProductSubCategory.SubCategoryName is not null)
+            {
+                @if (item.ProductCategory.CategoryName is not null)
+                {
+                    <td>@item.ProductSubCategory.SubCategoryName / @item.ProductCategory.CategoryName</td>
+                }
+
+            }
+            <td>
+                @if (item.IsActive == true)
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <span class="badge badge-pill badge-green">Available</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-danger badge-dot m-r-10"></div>
+                        <span class="badge badge-pill badge-red">Unavailable</span>
+                    </div>
+                }
+            </td>
+            <td>
+                <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a>
+                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Sửa</a>
+            </td>
+        </tr>
+    }
+}
