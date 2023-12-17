@@ -5,57 +5,38 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Category</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CategoryName" class="control-label"></label>
-                <input asp-for="CategoryName" class="form-control" />
-                <span asp-validation-for="CategoryName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryDescription" class="control-label"></label>
-                <input asp-for="CategoryDescription" class="form-control" />
-                <span asp-validation-for="CategoryDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubCategoryCount" class="control-label"></label>
-                <input asp-for="SubCategoryCount" class="form-control" />
-                <span asp-validation-for="SubCategoryCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductCount" class="control-label"></label>
-                <input asp-for="ProductCount" class="form-control" />
-                <span asp-validation-for="ProductCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryCreatedDate" class="control-label"></label>
-                <input asp-for="CategoryCreatedDate" class="form-control" />
-                <span asp-validation-for="CategoryCreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryModifiedDate" class="control-label"></label>
-                <input asp-for="CategoryModifiedDate" class="form-control" />
-                <span asp-validation-for="CategoryModifiedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminCategory" asp-action="Index" class="breadcrumb-item">Quản lý danh mục sản phẩm</a>
+            <span class="breadcrumb-item active">Thêm mới danh mục</span>
+        </nav>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<h3>Thêm mới danh mục</h3>
+<br />
+
+<form asp-action="Create" asp-controller="AdminCategory" method="post" accept-charset="UTF-8">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CategoryName">Tên danh mục</label>
+                <input type="text" class="form-control" asp-for="CategoryName" placeholder="Tên sản phẩm">
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="CategoryDescription">Mô tả danh mục</label>
+                <input type="text" class="form-control" asp-for="CategoryDescription" placeholder="Mô tả danh mục">
+                <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="AdminCategory" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Thêm danh mục" />
+    </div>
+</form>
 

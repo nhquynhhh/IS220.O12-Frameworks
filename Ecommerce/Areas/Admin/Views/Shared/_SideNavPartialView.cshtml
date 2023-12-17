@@ -32,10 +32,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="">Danh mục cha</a>
+                                <a asp-area="Admin" asp-action="Index" asp-controller="AdminCategory">Danh mục cha</a>
                             </li>
                             <li>
-                                <a href="">Danh mục con</a>
+                                <a asp-area="Admin" asp-action="Index" asp-controller="AdminSubCategories">Danh mục con</a>
                             </li>
                         </ul>
                     </li>
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="AdminDiscounts">
                     <span class="icon-holder">
                         <i class="anticon anticon-gift"></i>
                     </span>

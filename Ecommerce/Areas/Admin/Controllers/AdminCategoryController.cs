@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ecommerce.Models;
+using PagedList.Core;
+using Ecommerce.Helpper;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -13,19 +16,39 @@ namespace Ecommerce.Areas.Admin.Controllers
     public class AdminCategoryController : Controller
     {
         private readonly EcommerceContext _context;
+        public INotyfService _notyfService { get; }
 
-        public AdminCategoryController(EcommerceContext context)
+        public AdminCategoryController(EcommerceContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminCategory
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int page = 1, int categoryID = 0)
         {
-              return _context.Categories != null ? 
-                          View(await _context.Categories.ToListAsync()) :
-                          Problem("Entity set 'EcommerceContext.Categories'  is null.");
+            var pageNumber = page;
+            var pageSize = 10;
+            List<Category> lsCategories = new List<Category>();
+
+                lsCategories = _context.Categories
+                .AsNoTracking()
+                .Include(x => x.SubCategories)
+                .Include(x => x.Products)
+                .OrderBy(x => x.CategoryId).ToList();
+
+            PagedList<Category> models = new PagedList<Category>(lsCategories.AsQueryable(), pageNumber, pageSize);
+
+            ViewBag.CurrentCatID = categoryID;
+
+            ViewBag.currentPage = pageNumber;
+
+            ViewData["Category"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+
+            var ecommerceContext = _context.Categories.Include(p => p.Products).Include(p => p.SubCategories);
+            return View(models);
         }
+
 
         // GET: Admin/AdminCategory/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -60,8 +83,17 @@ namespace Ecommerce.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.CategoryName = Utilities.ToTitleCase(category.CategoryName);
+                category.SubCategoryCount = 0;
+                category.ProductCount = 0;
+                category.CategoryCreatedDate = DateTime.Now;
+                category.CategoryModifiedDate = DateTime.Now;
+                category.IsActive = true;
+                category.CategorySlug = Utilities.SEOUrl(category.CategoryName);
+
                 _context.Add(category);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới danh mục thành công");
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -99,8 +131,16 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 try
                 {
+                    category.CategoryName = Utilities.ToTitleCase(category.CategoryName);
+                    category.SubCategoryCount = _context.SubCategories.Count(s => s.CategoryId == category.CategoryId);
+                    category.ProductCount = _context.Products.Count(p => p.ProductCategoryId == category.CategoryId);
+                    category.CategoryModifiedDate = DateTime.Now;
+                    category.IsActive = true;
+                    category.CategorySlug = Utilities.SEOUrl(category.CategoryName);
+
                     _context.Update(category);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Chỉnh sửa danh mục thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {

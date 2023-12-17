@@ -7,7 +7,7 @@ public partial class Category
 {
     public int CategoryId { get; set; }
 
-    public string? CategoryName { get; set; }
+    public string CategoryName { get; set; } = null!;
 
     public string? CategoryDescription { get; set; }
 
@@ -19,7 +19,9 @@ public partial class Category
 
     public DateTime? CategoryModifiedDate { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
+
+    public string? CategorySlug { get; set; }
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 
