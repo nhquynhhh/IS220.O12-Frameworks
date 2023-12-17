@@ -69,6 +69,12 @@
           }
         }
       },
+      "bootstrap.chosen/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.6.4"
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -662,6 +668,9 @@
             "locale": "zh-Hant"
           }
         }
+      },
+      "jQuery/1.6.4": {
+        "type": "package"
       },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.12": {
         "type": "package",
@@ -4359,6 +4368,24 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
+    "bootstrap.chosen/1.0.0": {
+      "sha512": "gq1QwZ53xlx1mKUBbSP9+o0AVsL61g6RQ5Jia/ghXb4CurA1aJUZtoOnO77fZrSsuRNh0J7I5ct5qTu2otQUmg==",
+      "type": "package",
+      "path": "bootstrap.chosen/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.chosen.1.0.0.nupkg.sha512",
+        "bootstrap.chosen.nuspec",
+        "content/Content/bootstrap-chosen.css",
+        "content/Content/bootstrap-chosen.less",
+        "content/Content/bootstrap-chosen.scss",
+        "content/Content/chosen-sprite.png",
+        "content/Content/chosen-sprite@2x.png",
+        "content/Scripts/chosen.jquery.js",
+        "content/Scripts/chosen.jquery.min.js"
+      ]
+    },
     "Humanizer/2.14.1": {
       "sha512": "/FUTD3cEceAAmJSCPN9+J+VhGwmL/C12jvwlyM1DFXShEMsBzvLzLqSrJ2rb+k/W2znKw7JyflZgZpyE+tI7lA==",
       "type": "package",
@@ -5103,6 +5130,24 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "jQuery/1.6.4": {
+      "sha512": "8RzoZQFeFYL/cINRXksLWyl8D5TKctZ/2G8hrlOLLM5OgFNI9h3t3l5tB+BBbsBUxaPUageVe0p9ruU5jrFeow==",
+      "type": "package",
+      "path": "jquery/1.6.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.6.4-vsdoc.js",
+        "Content/Scripts/jquery-1.6.4.js",
+        "Content/Scripts/jquery-1.6.4.min.js",
+        "Tools/install.ps1",
+        "Tools/jquery-1.6.4-vsdoc-para.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.6.4.nupkg.sha512",
+        "jquery.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.12": {
@@ -12159,7 +12204,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.14",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.11",
       "PagedList.Core.Mvc >= 3.0.0",
-      "SmartBreadcrumbs >= 3.6.1"
+      "SmartBreadcrumbs >= 3.6.1",
+      "bootstrap.chosen >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12252,6 +12298,10 @@
           "SmartBreadcrumbs": {
             "target": "Package",
             "version": "[3.6.1, )"
+          },
+          "bootstrap.chosen": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [

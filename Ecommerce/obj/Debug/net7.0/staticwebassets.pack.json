@@ -773,6 +773,650 @@
       "PackagePath": "staticwebassets\\admin_assets\\scss\\ui-elements\\_timeline.scss"
     },
     {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\font\\summernote.eot",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\font\\summernote.eot"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\font\\summernote.ttf",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\font\\summernote.ttf"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\font\\summernote.woff",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\font\\summernote.woff"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\font\\summernote.woff2",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\font\\summernote.woff2"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ar-AR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ar-AR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ar-AR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ar-AR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ar-AR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ar-AR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-az-AZ.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-az-AZ.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-az-AZ.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-az-AZ.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-az-AZ.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-az-AZ.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-bg-BG.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-bg-BG.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-bg-BG.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-bg-BG.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-bg-BG.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-bg-BG.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ca-ES.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ca-ES.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ca-ES.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ca-ES.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ca-ES.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ca-ES.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-cs-CZ.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-cs-CZ.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-cs-CZ.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-cs-CZ.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-cs-CZ.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-cs-CZ.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-da-DK.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-da-DK.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-da-DK.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-da-DK.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-da-DK.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-da-DK.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-de-DE.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-de-DE.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-de-DE.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-de-DE.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-de-DE.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-de-DE.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-el-GR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-el-GR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-el-GR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-el-GR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-el-GR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-el-GR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-ES.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-ES.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-ES.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-ES.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-ES.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-ES.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-EU.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-EU.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-EU.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-EU.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-es-EU.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-es-EU.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fa-IR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fa-IR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fa-IR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fa-IR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fa-IR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fa-IR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fi-FI.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fi-FI.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fi-FI.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fi-FI.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fi-FI.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fi-FI.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fr-FR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fr-FR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fr-FR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fr-FR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-fr-FR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-fr-FR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-gl-ES.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-gl-ES.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-gl-ES.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-gl-ES.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-gl-ES.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-gl-ES.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-he-IL.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-he-IL.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-he-IL.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-he-IL.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-he-IL.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-he-IL.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hr-HR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hr-HR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hr-HR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hr-HR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hr-HR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hr-HR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hu-HU.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hu-HU.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hu-HU.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hu-HU.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-hu-HU.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-hu-HU.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-id-ID.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-id-ID.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-id-ID.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-id-ID.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-id-ID.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-id-ID.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-it-IT.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-it-IT.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-it-IT.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-it-IT.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-it-IT.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-it-IT.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ja-JP.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ja-JP.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ja-JP.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ja-JP.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ja-JP.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ja-JP.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ko-KR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ko-KR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ko-KR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ko-KR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ko-KR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ko-KR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LT.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LT.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LT.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LT.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LT.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LT.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LV.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LV.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LV.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LV.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-lt-LV.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-lt-LV.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-mn-MN.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-mn-MN.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-mn-MN.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-mn-MN.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-mn-MN.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-mn-MN.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nb-NO.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nb-NO.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nb-NO.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nb-NO.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nb-NO.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nb-NO.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nl-NL.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nl-NL.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nl-NL.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nl-NL.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-nl-NL.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-nl-NL.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pl-PL.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pl-PL.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pl-PL.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pl-PL.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pl-PL.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pl-PL.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-BR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-BR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-BR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-BR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-BR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-BR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-PT.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-PT.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-PT.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-PT.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-pt-PT.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-pt-PT.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ro-RO.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ro-RO.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ro-RO.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ro-RO.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ro-RO.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ro-RO.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ru-RU.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ru-RU.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ru-RU.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ru-RU.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ru-RU.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ru-RU.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sk-SK.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sk-SK.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sk-SK.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sk-SK.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sk-SK.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sk-SK.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sl-SI.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sl-SI.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sl-SI.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sl-SI.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sl-SI.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sl-SI.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS-Latin.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sr-RS.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sr-RS.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sv-SE.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sv-SE.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sv-SE.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sv-SE.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-sv-SE.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-sv-SE.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ta-IN.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ta-IN.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ta-IN.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ta-IN.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-ta-IN.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-ta-IN.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-th-TH.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-th-TH.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-th-TH.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-th-TH.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-th-TH.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-th-TH.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-tr-TR.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-tr-TR.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-tr-TR.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-tr-TR.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-tr-TR.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-tr-TR.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uk-UA.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uk-UA.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uk-UA.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uk-UA.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uk-UA.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uk-UA.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uz-UZ.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uz-UZ.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uz-UZ.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uz-UZ.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-uz-UZ.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-uz-UZ.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-vi-VN.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-vi-VN.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-vi-VN.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-vi-VN.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-vi-VN.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-vi-VN.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-CN.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-CN.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-CN.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-CN.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-CN.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-CN.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-TW.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-TW.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-TW.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-TW.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\lang\\summernote-zh-TW.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\lang\\summernote-zh-TW.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\plugin\\databasic\\summernote-ext-databasic.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\plugin\\databasic\\summernote-ext-databasic.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\plugin\\databasic\\summernote-ext-databasic.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\plugin\\databasic\\summernote-ext-databasic.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\plugin\\hello\\summernote-ext-hello.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\plugin\\hello\\summernote-ext-hello.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.js.map"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.min.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.min.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-bs4.min.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-bs4.min.js.map"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.js.map"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.min.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.min.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote-lite.min.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote-lite.min.js.map"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.js.map"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.min.css",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.min.css"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.min.js"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.min.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.min.js.LICENSE.txt"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\summernote\\summernote.min.js.map",
+      "PackagePath": "staticwebassets\\admin_assets\\summernote\\summernote.min.js.map"
+    },
+    {
       "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\admin_assets\\vendors\\bootstrap-datepicker\\bootstrap-datepicker.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\vendors\\bootstrap-datepicker\\bootstrap-datepicker.min.css"
     },
@@ -3333,72 +3977,108 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\09bcd021-5dea-41c2-8576-9e6039f4a992.jpg",
-      "PackagePath": "staticwebassets\\uploads\\09bcd021-5dea-41c2-8576-9e6039f4a992.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\blogs\\13ec0b6f-c8b2-4e4f-a08a-a0a51250bc99.jpg",
+      "PackagePath": "staticwebassets\\uploads\\blogs\\13ec0b6f-c8b2-4e4f-a08a-a0a51250bc99.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\1d7a641c-4bff-4a83-b6fb-fc51bc8b0ef2.jpg",
-      "PackagePath": "staticwebassets\\uploads\\1d7a641c-4bff-4a83-b6fb-fc51bc8b0ef2.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\blogs\\e4244614-3ade-4c7d-a54d-be0a66add1b6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\blogs\\e4244614-3ade-4c7d-a54d-be0a66add1b6.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\1da11a8b-0a35-4f2a-b96b-2dfe53b1d85b.jpg",
-      "PackagePath": "staticwebassets\\uploads\\1da11a8b-0a35-4f2a-b96b-2dfe53b1d85b.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\1fd53370-8b96-4ae0-93e2-63744fc7a88d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\customers\\1fd53370-8b96-4ae0-93e2-63744fc7a88d.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\1fa80f7e-b274-4209-825a-5781785280db.png",
-      "PackagePath": "staticwebassets\\uploads\\1fa80f7e-b274-4209-825a-5781785280db.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\269eef65-257e-46c9-ac8d-426d6382e9ae.jpg",
+      "PackagePath": "staticwebassets\\uploads\\customers\\269eef65-257e-46c9-ac8d-426d6382e9ae.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\20d58080-5bde-4f5b-8eb3-974ac924b9bf.png",
-      "PackagePath": "staticwebassets\\uploads\\20d58080-5bde-4f5b-8eb3-974ac924b9bf.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\3919e36a-2428-42ab-a7d7-19ec3e053122.jpg",
+      "PackagePath": "staticwebassets\\uploads\\customers\\3919e36a-2428-42ab-a7d7-19ec3e053122.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\58a75fa8-ad11-44bb-be8c-dd43d0932dce.png",
-      "PackagePath": "staticwebassets\\uploads\\58a75fa8-ad11-44bb-be8c-dd43d0932dce.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\4637ddef-e49e-43dd-94c4-855c6e8fa3de.png",
+      "PackagePath": "staticwebassets\\uploads\\customers\\4637ddef-e49e-43dd-94c4-855c6e8fa3de.png"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\68d1b8c6-f4f5-4fba-a30f-c436b693ab0d.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\68d1b8c6-f4f5-4fba-a30f-c436b693ab0d.jpeg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\72b17aff-2ce8-4f9f-93df-67d1d9c51438.png",
+      "PackagePath": "staticwebassets\\uploads\\customers\\72b17aff-2ce8-4f9f-93df-67d1d9c51438.png"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\6a3301af-7b05-46dc-b938-fc2af5f180c4.png",
-      "PackagePath": "staticwebassets\\uploads\\6a3301af-7b05-46dc-b938-fc2af5f180c4.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\865cf21b-cb03-4d98-9e9f-caa2657a5c35.jpg",
+      "PackagePath": "staticwebassets\\uploads\\customers\\865cf21b-cb03-4d98-9e9f-caa2657a5c35.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\7b16d258-d405-4eb4-b447-5d5268754d8d.jpg",
-      "PackagePath": "staticwebassets\\uploads\\7b16d258-d405-4eb4-b447-5d5268754d8d.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\9d7c2169-d69f-4c0f-934f-796054b0437f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\customers\\9d7c2169-d69f-4c0f-934f-796054b0437f.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\89e3a0bf-2424-4bb6-a414-09686a6c5e67.jpg",
-      "PackagePath": "staticwebassets\\uploads\\89e3a0bf-2424-4bb6-a414-09686a6c5e67.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\customers\\ea2c659c-4e24-4886-9fca-27c25c85ee82.png",
+      "PackagePath": "staticwebassets\\uploads\\customers\\ea2c659c-4e24-4886-9fca-27c25c85ee82.png"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\8e869e9e-d4a9-43aa-b942-d7c506c4023d.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\8e869e9e-d4a9-43aa-b942-d7c506c4023d.jpeg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\90aaac02-4267-4883-85fe-5f5490e08645.png",
-      "PackagePath": "staticwebassets\\uploads\\90aaac02-4267-4883-85fe-5f5490e08645.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\2.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\cfcd7b4d-dfeb-47cb-ad99-7438e793c5e9.jpg",
-      "PackagePath": "staticwebassets\\uploads\\cfcd7b4d-dfeb-47cb-ad99-7438e793c5e9.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\20a87079-761a-4235-8e9b-3027c839edab.png",
+      "PackagePath": "staticwebassets\\uploads\\products\\20a87079-761a-4235-8e9b-3027c839edab.png"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\d401e827-208d-45e0-9d1d-f5d8e6091e0f.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\d401e827-208d-45e0-9d1d-f5d8e6091e0f.jpeg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\24f9d195-803a-4294-a5a2-fc5aec1abae2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\24f9d195-803a-4294-a5a2-fc5aec1abae2.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\e857f14c-303f-441e-9bb3-2fe25bdd92af.jpg",
-      "PackagePath": "staticwebassets\\uploads\\e857f14c-303f-441e-9bb3-2fe25bdd92af.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\3.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\ef43de7b-b3e4-43ba-a408-01f1630c7358.png",
-      "PackagePath": "staticwebassets\\uploads\\ef43de7b-b3e4-43ba-a408-01f1630c7358.png"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\38f593d1-89e3-40f7-869b-eea55a80e5f6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\38f593d1-89e3-40f7-869b-eea55a80e5f6.jpg"
     },
     {
-      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\ffaac2a6-309c-4096-bd77-a800b55a49db.jpg",
-      "PackagePath": "staticwebassets\\uploads\\ffaac2a6-309c-4096-bd77-a800b55a49db.jpg"
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\ba75f6e4-8700-4efd-8992-3d2c1f89672c.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\ba75f6e4-8700-4efd-8992-3d2c1f89672c.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\boogle-old-office.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\boogle-old-office.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\dcaa3a0b-77b3-4b6a-92f9-be36176c3d6e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\dcaa3a0b-77b3-4b6a-92f9-be36176c3d6e.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\dceac11f-aec6-4d07-afeb-30e043509eb5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\dceac11f-aec6-4d07-afeb-30e043509eb5.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\default.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\default.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\f4aba63b-0863-49d3-b8b6-07a207da74d8.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\f4aba63b-0863-49d3-b8b6-07a207da74d8.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\sua-duong-the-vaseline-sang-da-chuyen-sau-ban-dem-330ml.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\sua-duong-the-vaseline-sang-da-chuyen-sau-ban-dem-330ml.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\sua-duong-the-vaseline.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\sua-duong-the-vaseline.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\tvds.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\tvds.jpg"
+    },
+    {
+      "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\uploads\\products\\xe.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\xe.jpg"
     },
     {
       "Id": "D:\\UIT\\Y03_HK1\\Main\\Framework\\Project\\Ecommerce\\Ecommerce\\wwwroot\\user_assets\\background.png",

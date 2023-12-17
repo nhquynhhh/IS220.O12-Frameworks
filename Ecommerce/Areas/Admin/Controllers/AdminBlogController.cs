@@ -9,6 +9,7 @@ using Ecommerce.Models;
 using Microsoft.Extensions.Hosting;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList.Core;
+using Ecommerce.Helpper;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -25,13 +26,22 @@ namespace Ecommerce.Areas.Admin.Controllers
             _notyfService = notyfService;
             _context = context;
         }
-
+        
         // GET: Admin/AdminBlog
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-              return _context.Blogs != null ? 
-                          View(await _context.Blogs.ToListAsync()) :
-                          Problem("Entity set 'EcommerceContext.Blogs'  is null.");
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 10;
+            var lsBlogs = _context.Blogs
+                .AsNoTracking()
+                .OrderBy(x => x.BlogId);
+
+            PagedList<Blog> models = new PagedList<Blog>(lsBlogs, pageNumber, pageSize);
+
+            ViewBag.currentPage = pageNumber;
+
+            var ecommerceContext = _context.Blogs;
+            return View(models);
         }
 
         // GET: Admin/AdminBlog/Details/5
@@ -70,7 +80,7 @@ namespace Ecommerce.Areas.Admin.Controllers
                 if (file != null && file.Length > 0)
                 {
                     // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
-                    var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                    var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "blogs");
                     var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     var fileRealPath = Path.Combine(uploads, fileName);
 
@@ -80,10 +90,16 @@ namespace Ecommerce.Areas.Admin.Controllers
                     }
                     // Cập nhật tên tệp tin mới trong đối tượng Blog
                     string fileInfo = new FileInfo(fileRealPath).Name;
-                    string filePath = "/uploads/" + fileInfo;
+                    string filePath = "/uploads/blogs/" + fileInfo;
                     blog.BlogImage = filePath;
                 }
-                
+
+                blog.BlogTitle = Utilities.ToTitleCase(blog.BlogTitle);
+                blog.BlogCreatedDate = DateTime.Now;
+                blog.BlogModifiedDate = DateTime.Now;
+                blog.BlogSlug = Utilities.SEOUrl(blog.BlogTitle);
+                blog.BlogAuthor = "Admin";
+
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 _notyfService.Success("Thêm mới bài đăng thành công");
@@ -127,7 +143,7 @@ namespace Ecommerce.Areas.Admin.Controllers
                     if (file != null && file.Length > 0)
                     {
                         // Lưu tệp tin vào thư mục hoặc lưu trữ bạn mong muốn
-                        var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                        var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "blogs");
                         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                         var fileRealPath = Path.Combine(uploads, fileName);
 
@@ -137,10 +153,13 @@ namespace Ecommerce.Areas.Admin.Controllers
                         }
                         // Cập nhật tên tệp tin mới trong đối tượng Blog
                         string fileInfo = new FileInfo(fileRealPath).Name;
-                        string filePath = "/uploads/" + fileInfo;
+                        string filePath = "/uploads/blogs/" + fileInfo;
                         blog.BlogImage = filePath;
                     }
-                    
+                    blog.BlogTitle = Utilities.ToTitleCase(blog.BlogTitle);
+                    blog.BlogModifiedDate = DateTime.Now;
+                    blog.BlogSlug = Utilities.SEOUrl(blog.BlogTitle);
+
                     _context.Update(blog);
 
                     await _context.SaveChangesAsync();

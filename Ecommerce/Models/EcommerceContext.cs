@@ -99,6 +99,7 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.BlogModifiedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("blogModifiedDate");
+            entity.Property(e => e.BlogSlug).HasColumnName("blogSlug");
             entity.Property(e => e.BlogSummary)
                 .HasMaxLength(1000)
                 .HasColumnName("blogSummary");
@@ -148,6 +149,7 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(200)
                 .HasColumnName("categoryName");
+            entity.Property(e => e.CategorySlug).HasColumnName("categorySlug");
             entity.Property(e => e.IsActive).HasColumnName("isActive");
             entity.Property(e => e.ProductCount).HasColumnName("productCount");
             entity.Property(e => e.SubCategoryCount).HasColumnName("subCategoryCount");
@@ -180,7 +182,7 @@ public partial class EcommerceContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("customerJoinDate");
             entity.Property(e => e.CustomerName)
-                .HasMaxLength(500)
+                .HasMaxLength(200)
                 .HasColumnName("customerName");
             entity.Property(e => e.CustomerOrderQuantity)
                 .HasDefaultValueSql("((0))")
@@ -332,7 +334,7 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.ProductInStock).HasColumnName("productInStock");
             entity.Property(e => e.ProductInfo)
                 .HasMaxLength(5000)
-                .IsUnicode(false)
+                .IsUnicode(true)
                 .HasColumnName("productInfo");
             entity.Property(e => e.ProductModifiedDate)
                 .HasColumnType("datetime")
@@ -341,18 +343,7 @@ public partial class EcommerceContext : DbContext
                 .HasMaxLength(200)
                 .HasColumnName("productName");
             entity.Property(e => e.ProductOriginalPrice).HasColumnName("productOriginalPrice");
-            entity.Property(e => e.ProductSideImage1)
-                .HasMaxLength(1000)
-                .IsUnicode(false)
-                .HasColumnName("productSideImage1");
-            entity.Property(e => e.ProductSideImage2)
-                .HasMaxLength(1000)
-                .IsUnicode(false)
-                .HasColumnName("productSideImage2");
-            entity.Property(e => e.ProductSideImage3)
-                .HasMaxLength(1000)
-                .IsUnicode(false)
-                .HasColumnName("productSideImage3");
+            entity.Property(e => e.ProductSlug).HasColumnName("productSlug");
             entity.Property(e => e.ProductSoldQuantity).HasColumnName("productSoldQuantity");
             entity.Property(e => e.ProductSubCategoryId).HasColumnName("productSubCategoryID");
 
@@ -435,6 +426,7 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.SubCategoryName)
                 .HasMaxLength(200)
                 .HasColumnName("subCategoryName");
+            entity.Property(e => e.SubCategorySlug).HasColumnName("subCategorySlug");
 
             entity.HasOne(d => d.Category).WithMany(p => p.SubCategories)
                 .HasForeignKey(d => d.CategoryId)

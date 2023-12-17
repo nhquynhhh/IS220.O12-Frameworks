@@ -90,6 +90,10 @@
             "SmartBreadcrumbs": {
               "target": "Package",
               "version": "[3.6.1, )"
+            },
+            "bootstrap.chosen": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "imports": [
