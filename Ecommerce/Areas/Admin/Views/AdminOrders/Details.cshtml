@@ -1,85 +1,106 @@
 ﻿@model Ecommerce.Models.Order
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShippingFee)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShippingFee)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DiscountPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DiscountPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GrandPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GrandPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PaymentMethod)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PaymentMethod)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderCreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderCreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderCompleteDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderCompleteDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PaymentStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PaymentStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Customer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Customer.CustomerId)
-        </dd>
-    </dl>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="breadcrumb-item">Quản lý đơn hàng</a>
+            <span class="breadcrumb-item active">Chi tiết đơn hàng</span>
+        </nav>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.OrderId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<h3>Chi tiết đơn hàng</h3>
+<br />
+
+<div class="main-content">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div id="invoice" class="p-h-30">
+                    <div class="lh-2">
+                        <div class="inline-block">
+                            <img class="img-fluid" src="~/user_assets/color-logo.svg" alt="">
+                            <address class="p-l-10">
+                                <br />
+                                <span class="font-weight-semibold text-dark">PING Cosmetics</span><br>
+                                <span>Based in Ho Chi Minh City</span><br>
+                                <span class="text-dark" title="Phone">Phone:</span>
+                                <span>123456789</span>
+                            </address>
+                        </div>
+                        <div>
+                            <h3 class="txt-cyan text-center" style="font-weight: 600;">ĐƠN HÀNG</h3>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row m-t-20 lh-2">
+                        <div class="col-sm-9">
+                            <h5 class="p-l-10 m-t-10">Địa chỉ giao hàng:</h5>
+                            <address class="p-l-10 m-t-10">
+                                <span class="font-weight-semibold text-dark">Khách hàng: @Model.Customer.CustomerName</span><br>
+                                <span class="text-dark">@Model.Customer.CustomerAddress</span>
+                            </address>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="m-t-80">
+                                <div class="text-dark text-uppercase d-inline-block">
+                                    <span class="font-weight-semibold text-dark">Mã đơn hàng:</span>
+                                </div>
+                                <div class="float-right">@Model.OrderId</div>
+                            </div>
+                            <div class="text-dark text-uppercase d-inline-block">
+                                <span class="font-weight-semibold text-dark">Ngày đặt hàng:</span>
+                            </div>
+                            <div class="float-right">@Model.OrderCreatedDate</div>
+                        </div>
+                    </div>
+                    <div class="m-t-20">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderDetails)
+                                    {
+                                        int stt = 1;
+                                        <tr style="color: black;">
+                                            <th>@stt</th>
+                                            <td style="text-align: left;">@item.ProductName</td>
+                                            <td>@item.ProductQuantity</td>
+                                            <td>@item.ProductPrice.Value.ToString("#,##0") &#8363;</td>
+                                            <td>@item.ProductTotalPrice.Value.ToString("#,##0") &#8363;</td>
+                                        </tr>
+                                        stt++;
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row m-t-30 lh-1-8">
+                            <div class="col-sm-12">
+                                <div class="float-right text-right">
+                                    <p style="text-align: right;">Tạm tính: @Model.TotalPrice.Value.ToString("#,##0") &#8363;</p>
+                                    <p style="text-align: right;">Phí vận chuyển: @Model.ShippingFee.Value.ToString("#,##0") &#8363;</p>
+                                    <hr>
+                                    <p style="text-align: right;"><span class="font-weight-semibold text-dark">Thành tiền: </span><strong style="font-weight: 600; font-size: 17px;" class="txt-orange">@Model.GrandPrice.Value.ToString("#,##0") &#8363;</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

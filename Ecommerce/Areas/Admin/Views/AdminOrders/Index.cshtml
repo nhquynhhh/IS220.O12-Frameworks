@@ -1,95 +1,88 @@
 ﻿@model IEnumerable<Ecommerce.Models.Order>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Quản lý đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="breadcrumb-item active">Quản lý đơn hàng</a>
+        </nav>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShippingFee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiscountPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GrandPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentMethod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderCreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderCompleteDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShippingFee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiscountPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GrandPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderCreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderCompleteDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<h3 class="font-weight-bold mb-4" style="color: #0097B2">Quản lý đơn hàng</h3>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ngày</th>
+                            <th>Thành tiền</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.OrderId
+                                </td>
+                                <td>@item.OrderCreatedDate</td>
+                                @if(item.GrandPrice != null)
+                                {
+                                    <td>@item.GrandPrice.Value.ToString("#,##0") &#8363;</td>
+                                }
+                                
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @if (item.OrderStatus == "pending")
+                                        {
+                                            <div class="badge badge-primary badge-dot m-r-10"></div>
+                                            <div> Đã gửi</div>
+                                        }
+                                        else if (item.OrderStatus == "processing")
+                                        {
+                                            <div class="badge badge-warning badge-dot m-r-10"></div>
+                                            <div> Đang xử lý</div>
+                                        }
+                                        else if (item.OrderStatus == "completed")
+                                        {
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div> Hoàn thành</div>
+                                        }
+                                        else if (item.OrderStatus == "cancelled")
+                                        {
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div> Pending</div>
+                                        }
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.OrderId">Chi tiết</a>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@item.OrderId">Sửa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p>Chưa có đơn hàng.</p>
+        }
+        <div id="records_table">
+        </div>
+    </div>
+</div>

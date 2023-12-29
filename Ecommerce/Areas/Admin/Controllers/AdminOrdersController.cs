@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ecommerce.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using PagedList.Core;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -16,16 +17,29 @@ namespace Ecommerce.Areas.Admin.Controllers
         private readonly EcommerceContext _context;
         public INotyfService _notyfService { get; }
 
-        public AdminOrdersController(EcommerceContext context)
+        public AdminOrdersController(EcommerceContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminOrders
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int page = 1)
         {
-            var ecommerceContext = _context.Orders.Include(o => o.Customer);
-            return View(await ecommerceContext.ToListAsync());
+            var pageNumber = page;
+            var pageSize = 10;
+            List<Order> lsOrders = new List<Order>();
+
+            lsOrders = _context.Orders
+            .AsNoTracking()
+            .Include(x => x.Customer)
+            .Include(x => x.OrderDetails)
+            .OrderBy(x => x.OrderCreatedDate).ToList();
+
+            PagedList<Order> models = new PagedList<Order>(lsOrders.AsQueryable(), pageNumber, pageSize);
+
+            var ecommerceContext = _context.Orders.Include(p => p.OrderDetails).Include(p => p.Customer);
+            return View(models);
         }
 
         // GET: Admin/AdminOrders/Details/5
@@ -38,6 +52,7 @@ namespace Ecommerce.Areas.Admin.Controllers
 
             var order = await _context.Orders
                 .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
             {
@@ -85,6 +100,7 @@ namespace Ecommerce.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", order.CustomerId);
+
             return View(order);
         }
 

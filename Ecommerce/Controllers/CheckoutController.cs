@@ -107,6 +107,7 @@ namespace Ecommerce.Controllers
                         OrderDetail orderDetail = new OrderDetail();
                         orderDetail.OrderId = donhang.OrderId;
                         orderDetail.ProductId = item.product.ProductId;
+                        orderDetail.ProductName = item.product.ProductName;
                         orderDetail.ProductQuantity = item.amount;
                         orderDetail.ProductTotalPrice = donhang.TotalPrice;
                         orderDetail.ProductPrice = item.product.ProductDiscountPrice;

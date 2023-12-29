@@ -1,0 +1,92 @@
+﻿@model Ecommerce.ModelViews.OrderView
+
+@{
+    var total = Model.ChiTietDonHang.Sum(x => x.ProductTotalPrice).Value.ToString("#,##0");
+}
+
+<div class="main-content">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div id="invoice" class="p-h-30">
+                    <div class="m-t-15 lh-2">
+                        <div class="inline-block">
+                            <img class="img-fluid" src="~/user_assets/color-logo.svg" alt="">
+                            <address class="p-l-10">
+                                <br />
+                                <span class="font-weight-semibold text-dark">PING Cosmetics</span><br>
+                                <span>Based in Ho Chi Minh City</span><br>
+                                <span class="text-dark" title="Phone">Phone:</span>
+                                <span>123456789</span>
+                            </address>
+                        </div>
+                        <div>
+                            <h3 class="txt-cyan text-center" style="font-weight: 600;">ĐƠN HÀNG</h3>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row m-t-20 lh-2">
+                        <div class="col-sm-9">
+                            <h5 class="p-l-10 m-t-10">Địa chỉ giao hàng:</h5>
+                            <address class="p-l-10 m-t-10">
+                                <span class="font-weight-semibold text-dark">Mã khách hàng: @Model.DonHang.CustomerId</span><br>
+                                <span class="text-dark">@Model.DonHang.OrderAddress</span>
+                            </address>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="m-t-80">
+                                <div class="text-dark text-uppercase d-inline-block">
+                                    <span class="font-weight-semibold text-dark">Mã đơn hàng:</span>
+                                </div>
+                                <div class="float-right">@Model.DonHang.OrderId</div>
+                            </div>
+                            <div class="text-dark text-uppercase d-inline-block">
+                                <span class="font-weight-semibold text-dark">Ngày đặt hàng:</span>
+                            </div>
+                            <div class="float-right">@Model.DonHang.OrderCreatedDate</div>
+                        </div>
+                    </div>
+                    <div class="m-t-20">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in Model.ChiTietDonHang)
+                                    {
+                                        int stt = 1;
+                                        <tr>
+                                            <th>@stt</th>
+                                            <td style="text-align: left;">@item.ProductName</td>
+                                            <td>@item.ProductQuantity</td>
+                                            <td>@item.ProductPrice.Value.ToString("#,##0") &#8363;</td>
+                                            <td>@item.ProductTotalPrice.Value.ToString("#,##0") &#8363;</td>
+                                        </tr>
+                                        stt++;
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row m-t-30 lh-1-8">
+                            <div class="col-sm-12">
+                                <div class="float-right text-right">
+                                    <p style="text-align: right;">Tạm tính: @total &#8363;</p>
+                                    <p style ="text-align: right;">Phí vận chuyển: @Model.DonHang.ShippingFee.Value.ToString("#,##0") &#8363;</p>
+                                    <hr>
+                                    <p style="text-align: right;"><span class="font-weight-semibold text-dark">Thành tiền: </span><strong style="font-weight: 600; font-size: 17px;" class="txt-orange">@Model.DonHang.GrandPrice.Value.ToString("#,##0") &#8363;</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
