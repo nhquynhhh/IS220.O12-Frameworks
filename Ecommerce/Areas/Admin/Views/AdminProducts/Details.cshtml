@@ -100,7 +100,7 @@
                     </div>
                     <div class="form-group">
                         <label class="font-weight-semibold" asp-for="ProductBrandId">Thương hiệu</label>
-                        @* <div class="form-control">@Model.ProductBrand.BrandName</div> *@
+                        <div class="form-control">@Model.ProductBrand.BrandName</div>
                     </div>
                     <div class="form-group">
                             <label class="font-weight-semibold" asp-for="IsActive">Trạng thái</label>
@@ -120,7 +120,8 @@
             <div class="card">
                 <div class="card-body">
                     <label class="font-weight-semibold" asp-for="ProductInfo">Mô tả sản phẩm</label>
-                    <textarea class="summernote" asp-for="ProductInfo"></textarea>
+                    <hr />
+                    @Html.Raw(Model.ProductInfo)
                 </div>
             </div>
         </div>

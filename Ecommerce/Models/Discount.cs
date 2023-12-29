@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Ecommerce.Models;
 
@@ -31,6 +30,4 @@ public partial class Discount
     public DateTime? DiscountCreatedDate { get; set; }
 
     public DateTime? DiscountModifiedDate { get; set; }
-
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

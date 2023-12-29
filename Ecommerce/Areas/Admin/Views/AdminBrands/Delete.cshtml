@@ -1,0 +1,61 @@
+﻿@model Ecommerce.Models.Brand
+
+@{
+    ViewData["Title"] = "Xóa thương hiệu";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBrands" asp-action="Index" class="breadcrumb-item">Quản lý thương hiệu</a>
+            <span class="breadcrumb-item active">Xóa thương hiệu</span>
+        </nav>
+    </div>
+</div>
+
+<h3 class="text-danger">Xác nhận xóa thương hiệu</h3>
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <div class="d-md-flex align-items-center">
+                    <div class="text-center text-sm-left ">
+                        <div class="avatar avatar-image" style="width: 150px; height: auto;">
+                            <img src="@Model.BrandImage" alt="">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm-left m-v-15 p-l-30">
+                        <h2 class="m-b-5" style="color: #0097B2">@Model.BrandName</h2>
+                        <p class="text-opacity font-size-13">ID thương hiệu: @Model.BrandId</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="d-md-block d-none border-left col-1"></div>
+                    <div class="col">
+                        <ul class="list-unstyled m-t-10">
+                            <li class="row">
+                                <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                    <i class="m-r-10 text-danger anticon anticon-global" style="font-size: 18px;"></i>
+                                    <span>Xuất xứ: </span>
+                                </p>
+                                <p class="col font-weight-semibold"> @Model.BrandOrigin</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="BrandId" />
+    <a asp-action="Index" class="btn btn-primary">Quay lại</a> |
+    <input type="submit" value="Xóa thương hiệu" class="btn btn-danger" />
+</form>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Ecommerce.ModelViews;
 
 namespace Ecommerce.Models;
 
@@ -69,6 +70,7 @@ public partial class EcommerceContext : DbContext
                 .HasColumnName("accountRegisterDate");
             entity.Property(e => e.AccountRoleId).HasColumnName("accountRoleID");
             entity.Property(e => e.IsActive).HasColumnName("isActive");
+            entity.Property(e => e.Salt).HasMaxLength(1000);
 
             entity.HasOne(d => d.AccountRole).WithMany(p => p.Accounts)
                 .HasForeignKey(d => d.AccountRoleId)
@@ -100,12 +102,8 @@ public partial class EcommerceContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("blogModifiedDate");
             entity.Property(e => e.BlogSlug).HasColumnName("blogSlug");
-            entity.Property(e => e.BlogSummary)
-                .HasMaxLength(1000)
-                .HasColumnName("blogSummary");
-            entity.Property(e => e.BlogTitle)
-                .HasMaxLength(200)
-                .HasColumnName("blogTitle");
+            entity.Property(e => e.BlogSummary).HasColumnName("blogSummary");
+            entity.Property(e => e.BlogTitle).HasColumnName("blogTitle");
         });
 
         modelBuilder.Entity<Brand>(entity =>
@@ -142,6 +140,7 @@ public partial class EcommerceContext : DbContext
                 .HasColumnName("categoryCreatedDate");
             entity.Property(e => e.CategoryDescription)
                 .HasMaxLength(1000)
+                .UseCollation("Vietnamese_CI_AS")
                 .HasColumnName("categoryDescription");
             entity.Property(e => e.CategoryModifiedDate)
                 .HasColumnType("datetime")
@@ -163,9 +162,7 @@ public partial class EcommerceContext : DbContext
 
             entity.Property(e => e.CustomerId).HasColumnName("customerID");
             entity.Property(e => e.AccountId).HasColumnName("accountID");
-            entity.Property(e => e.CustomerAddress)
-                .HasMaxLength(500)
-                .HasColumnName("customerAddress");
+            entity.Property(e => e.CustomerAddress).HasColumnName("customerAddress");
             entity.Property(e => e.CustomerAvatar)
                 .HasMaxLength(1000)
                 .HasColumnName("customerAvatar");
@@ -175,26 +172,25 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.CustomerBankAccount)
                 .HasMaxLength(200)
                 .HasColumnName("customerBankAccount");
-            entity.Property(e => e.CustomerEmail)
-                .HasMaxLength(200)
-                .HasColumnName("customerEmail");
+            entity.Property(e => e.CustomerEmail).HasColumnName("customerEmail");
             entity.Property(e => e.CustomerJoinDate)
                 .HasColumnType("datetime")
                 .HasColumnName("customerJoinDate");
-            entity.Property(e => e.CustomerName)
-                .HasMaxLength(200)
-                .HasColumnName("customerName");
+            entity.Property(e => e.CustomerLastLogin)
+                .HasColumnType("datetime")
+                .HasColumnName("customerLastLogin");
+            entity.Property(e => e.CustomerName).HasColumnName("customerName");
             entity.Property(e => e.CustomerOrderQuantity)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("customerOrderQuantity");
+            entity.Property(e => e.CustomerPassword)
+                .HasMaxLength(1000)
+                .HasColumnName("customerPassword");
             entity.Property(e => e.CustomerPhone)
                 .HasMaxLength(20)
                 .HasColumnName("customerPhone");
             entity.Property(e => e.IsActive).HasColumnName("isActive");
-
-            entity.HasOne(d => d.Account).WithMany(p => p.Customers)
-                .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("fk_customer_1");
+            entity.Property(e => e.Salt).HasMaxLength(1000);
         });
 
         modelBuilder.Entity<Discount>(entity =>
@@ -221,9 +217,7 @@ public partial class EcommerceContext : DbContext
             entity.Property(e => e.DiscountModifiedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("discountModifiedDate");
-            entity.Property(e => e.DiscountName)
-                .HasMaxLength(200)
-                .HasColumnName("discountName");
+            entity.Property(e => e.DiscountName).HasColumnName("discountName");
             entity.Property(e => e.DiscountQuantity).HasColumnName("discountQuantity");
             entity.Property(e => e.DiscountStartDate)
                 .HasColumnType("datetime")
@@ -244,7 +238,6 @@ public partial class EcommerceContext : DbContext
 
             entity.Property(e => e.OrderId).HasColumnName("orderID");
             entity.Property(e => e.CustomerId).HasColumnName("customerID");
-            entity.Property(e => e.DiscountId).HasColumnName("discountID");
             entity.Property(e => e.DiscountPrice).HasColumnName("discountPrice");
             entity.Property(e => e.GrandPrice).HasColumnName("grandPrice");
             entity.Property(e => e.OrderAddress)
@@ -274,9 +267,6 @@ public partial class EcommerceContext : DbContext
                 .HasForeignKey(d => d.CustomerId)
                 .HasConstraintName("fk_orders_1");
 
-            entity.HasOne(d => d.Discount).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.DiscountId)
-                .HasConstraintName("fk_orders_2");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -332,16 +322,11 @@ public partial class EcommerceContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("productImage");
             entity.Property(e => e.ProductInStock).HasColumnName("productInStock");
-            entity.Property(e => e.ProductInfo)
-                .HasMaxLength(5000)
-                .IsUnicode(true)
-                .HasColumnName("productInfo");
+            entity.Property(e => e.ProductInfo).HasColumnName("productInfo");
             entity.Property(e => e.ProductModifiedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("productModifiedDate");
-            entity.Property(e => e.ProductName)
-                .HasMaxLength(200)
-                .HasColumnName("productName");
+            entity.Property(e => e.ProductName).HasColumnName("productName");
             entity.Property(e => e.ProductOriginalPrice).HasColumnName("productOriginalPrice");
             entity.Property(e => e.ProductSlug).HasColumnName("productSlug");
             entity.Property(e => e.ProductSoldQuantity).HasColumnName("productSoldQuantity");
@@ -437,4 +422,8 @@ public partial class EcommerceContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public DbSet<Ecommerce.ModelViews.RegisterVM> RegisterVM { get; set; } = default!;
+
+    public DbSet<Ecommerce.ModelViews.LoginVM> LoginVM { get; set; } = default!;
 }

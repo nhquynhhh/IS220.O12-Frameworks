@@ -1,0 +1,41 @@
+﻿﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Ecommerce.Models.Blog>
+
+@{
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+    ViewData["Title"] = "Cẩm nang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-bottom: 80px; text-align: justify;">
+    <!-- section title -->
+    <h1 class="section-txt-title txt-center txt-bold">Cẩm nang</h1>
+    <!-- section title ends -->
+    <div class="row ">
+        @if (Model != null)
+        {
+            foreach(var item in Model)
+            {
+                string url = $"/Blog/{item.BlogSlug}-{item.BlogId}.html";
+                <div class="col-md-6">
+                    <div class="media blog-media">
+                        <a href="@url">
+                            <img class="d-flex" src="@item.BlogImage" alt="" style="width: 250px; height: auto;">
+                        </a>
+                        <div class="media-body">
+                            <a href="@url">
+                                <h5 class="mt-0 txt-cyan">@item.BlogTitle</h5>
+                            </a>
+                            @item.BlogSummary
+                            <a href="@url" class="post-link cyan-link">Đọc tiếp</a>
+                            <ul>
+                                <li>Ngày đăng: @item.BlogCreatedDate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

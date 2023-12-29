@@ -1,0 +1,175 @@
+﻿@model List<Ecommerce.ModelViews.CartItem>
+
+@section Styles{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
+}
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var returnUrl = Context.Request.Query["ReturnUrl"];
+}
+
+<section class="h-100">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0 txt-cyan hard" style="font-weight: 600 !important;">Giỏ hàng</h3>
+                </div>
+                <div class="card rounded-3 mb-4 bg-table">
+                    <div class="card-body p-2">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="txt-center col-lg-2 col-xl-2">
+                                <span class="tb-header">Hình ảnh</span>
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <span class="tb-header">Thông tin sản phẩm</span>
+                            </div>
+                            <div class="col-lg-3 col-xl-2 d-flex">
+                                <span class="ml-md-4 tb-header">Số lượng</span>
+                            </div>
+                            <div class="col-lg-2 col-xl-2 offset-lg-1">
+                                <span class="ml-lg-5 tb-header">Giá</span>
+                            </div>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <span class="tb-header"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @if(Model != null && Model.Count() > 0)
+                {
+                    foreach(var item in Model)
+                    {
+                        <div class="card rounded-3 mb-4">
+                            <div class="card-body p-4">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <img src="@item.product.ProductImage"
+                                             class="img-fluid rounded-3" alt="@item.product.ProductName">
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <p class="fw-normal mb-2">@item.product.ProductName</p>
+                                        <p><span class="text-muted">Mã sản phẩm: </span>@item.product.ProductId</p>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                        <input name="quantityCart" value="@item.amount" type="number" class="form-control form-control-sm quantityCart quantityChange" style="text-align: center; font-size: 16px;" data-mahh="@item.product.ProductId" />
+                                    </div>
+                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                        <h5 class="mb-0 txt-16">@item.TotalMoney.ToString("#,##0") &#8363;</h5>
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                        <button data-mahh="@item.product.ProductId" class="text-danger remove-cart-product" style="border:none; background: none;"><i class="fas fa-trash fa-lg"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                <div class="card">
+                    <div class="card-body">
+                        <div class="total mb-lg-5">
+                                <span class="tb-header left" style="font-weight: 600;">Tạm tính</span>
+                            <span class="tb-header right txt-18 txt-orange" style="font-weight: 600;">@Model.Sum(x => x.TotalMoney).ToString("#,##0") &#8363;</span>
+                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                                <div class="d-grid gap-2">
+                                    <a href="/checkout.html" class="btn btn-block btn-lg order text-uppercase">Tiến hành thanh toán</a>
+                                </div>
+                        }
+                        else
+                        {
+                                <div class="d-grid gap-2">
+                                    <a href="/dang-nhap.html?returnUrl=/checkout.html" class="btn btn-block btn-lg order text-uppercase">Tiến hành thanh toán</a>
+                                </div>
+                            
+                        }
+                    </div>
+                    </div>
+                }
+                else
+                {
+                    <p>Giỏ hàng trống.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="continue-shopping-container">
+        <a href="/" class="continue cyan-link"><i class="fa-solid fa-caret-left"></i> Tiếp tục mua hàng</a>
+        <hr>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $(".remove-cart-product").click(function () {
+                var productid = $(this).attr("data-mahh");
+                $.ajax({
+                    url: "api/cart/remove",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { productID: productid },
+                    success: function (result) {
+                        if (result.success) {
+                            let timerInterval;
+                            Swal.fire({
+                                title: "Xóa sản phẩm thành công!",
+                                html: "Cửa sổ này sẽ tự động đóng sau 3 giây.",
+                                timer: 3000,
+                                icon: "success",
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                    const timer = Swal.getPopup().querySelector("b");
+                                    timerInterval = setInterval(() => {
+                                        timer.textContent = `${Swal.getTimerLeft()}`;
+                                    }, 100);
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval);
+                                    location.reload();
+                                }
+                            }).then((result) => {
+                                /* Read more about handling dismissals below */
+                                if (result.dismiss === Swal.DismissReason.timer) {
+                                    console.log("I was closed by the timer");
+                                }
+                            });
+                        }
+                    },
+                    error: function (rs) {
+                        alert("Remove Cart Error !")
+                    }
+                });
+            });
+            $(".quantityChange").click(function () {
+                var productid = $(this).attr("data-mahh");
+                var soluong = parseInt($(this).val());
+                $.ajax({
+                    url: "api/cart/update",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {
+                        productID: productid,
+                        amount: soluong
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            location.reload();
+                        }
+                    },
+                    error: function (rs) {
+                        alert("Cập nhật Cart Error !")
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="/user_assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
+}

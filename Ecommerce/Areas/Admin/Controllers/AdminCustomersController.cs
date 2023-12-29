@@ -33,7 +33,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             var pageSize = 10;
             var lsCustomers = _context.Customers
                 .AsNoTracking()
-                .Include(c => c.Account)
                 .Include(c => c.Orders)
                 .OrderBy(x => x.CustomerId);
 
@@ -42,7 +41,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             ViewBag.currentPage = pageNumber;
 
             var ecommerceContext = _context.Customers
-                .Include(c => c.Account)
                 .Include(c => c.Orders);
             return View(models);
         }
@@ -56,7 +54,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             }
 
             var customer = await _context.Customers
-                .Include(c => c.Account)
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
@@ -126,7 +123,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", customer.AccountId);
             return View(customer);
         }
 
@@ -196,7 +192,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             }
 
             var customer = await _context.Customers
-                .Include(c => c.Account)
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {

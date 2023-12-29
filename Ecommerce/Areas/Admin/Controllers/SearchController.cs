@@ -57,7 +57,6 @@ namespace Ecommerce.Areas.Admin.Controllers
             {
                 ls = _context.Customers
                         .AsNoTracking()
-                        .Include(c => c.Account)
                         .Include(c => c.Orders)
                         .OrderBy(x => x.CustomerId)
                         .ToList();
@@ -68,7 +67,6 @@ namespace Ecommerce.Areas.Admin.Controllers
                 keyword = keyword.ToLower();
                 ls = _context.Customers
                                     .AsNoTracking()
-                                    .Include(c => c.Account)
                                     .Include(c => c.Orders)
                                     .Where(x => x.CustomerName.ToLower().Contains(keyword))
                                     .OrderBy(x => x.CustomerId)

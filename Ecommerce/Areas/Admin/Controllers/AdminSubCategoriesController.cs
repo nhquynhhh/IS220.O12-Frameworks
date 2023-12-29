@@ -89,7 +89,12 @@ namespace Ecommerce.Areas.Admin.Controllers
                 subCategory.SubCategorySlug = Utilities.SEOUrl(subCategory.SubCategoryName);
 
                 _context.Add(subCategory);
+
                 await _context.SaveChangesAsync();
+
+                var catId = subCategory.CategoryId;
+                UpdateSubCategoryCount(catId);
+
                 _notyfService.Success("Thêm mới danh mục thành công");
                 return RedirectToAction(nameof(Index));
             }
@@ -135,9 +140,20 @@ namespace Ecommerce.Areas.Admin.Controllers
                     subCategory.SubCategoryModifiedDate = DateTime.Now;
                     subCategory.IsActive = true;
                     subCategory.SubCategorySlug = Utilities.SEOUrl(subCategory.SubCategoryName);
-
+                    var originalSubCategory = await _context.SubCategories
+                                                        .AsNoTracking()
+                                                        .FirstOrDefaultAsync(sc => sc.SubCategoryId == subCategory.SubCategoryId);
                     _context.Update(subCategory);
+
                     await _context.SaveChangesAsync();
+
+                    var oldCategoryId = originalSubCategory?.CategoryId;
+                    if (oldCategoryId.HasValue)
+                    {
+                        UpdateSubCategoryCount(oldCategoryId.Value);
+                    }
+                    UpdateSubCategoryCount(subCategory.CategoryId);
+
                     _notyfService.Success("Chỉnh sửa danh mục thành công");
                 }
                 catch (DbUpdateConcurrencyException)
@@ -199,5 +215,22 @@ namespace Ecommerce.Areas.Admin.Controllers
         {
           return (_context.SubCategories?.Any(e => e.SubCategoryId == id)).GetValueOrDefault();
         }
+
+        private void UpdateSubCategoryCount(int? categoryId)
+        {
+            var updatedCategory = _context.Categories
+                .Where(c => c.CategoryId == categoryId)
+                .FirstOrDefault();
+
+            if (updatedCategory != null)
+            {
+                updatedCategory.SubCategoryCount = _context.SubCategories
+                    .Count(sc => sc.CategoryId == categoryId);
+
+                _context.SaveChanges();
+            }
+        }
     }
 }
+
+

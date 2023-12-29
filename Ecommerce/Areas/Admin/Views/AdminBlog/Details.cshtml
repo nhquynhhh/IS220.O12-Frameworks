@@ -65,7 +65,7 @@
                     <div class="row mb-3">
                         <label asp-for="BlogContent" class="col-sm-2 col-form-label font-weight-semibold">Nội dung bài đăng</label>
                         <div class="col-sm-10">
-                            <textarea asp-for="BlogContent" class="summernote" readonly></textarea>
+                            @Html.Raw(Model.BlogContent)
                         </div>
                     </div>
 

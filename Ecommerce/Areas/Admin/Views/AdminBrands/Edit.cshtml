@@ -1,0 +1,48 @@
+﻿@model Ecommerce.Models.Brand
+
+@{
+    ViewData["Title"] = "Chỉnh sửa thương hiệu";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminBrands" asp-action="Index" class="breadcrumb-item">Quản lý thương hiệu</a>
+            <span class="breadcrumb-item active">Chỉnh sửa thương hiệu</span>
+        </nav>
+    </div>
+</div>
+
+<h3>Chỉnh sửa thương hiệu</h3>
+<br />
+
+<form asp-action="Edit" asp-route-id="@Model.BrandId" asp-controller="AdminBrands" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="BrandId" />
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="BrandName">Tên thương hiệu</label>
+                <input type="text" class="form-control" asp-for="BrandName" placeholder="Tên thương hiệu">
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="BrandImage">Hình đại diện</label>
+                <input name="file" type="file" class="form-control-file" asp-for="BrandImage">
+                <span asp-validation-for="BrandImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" asp-for="BrandOrigin">Xuất xứ</label>
+                <input type="text" class="form-control" asp-for="BrandOrigin" placeholder="Xuất xứ">
+                <span asp-validation-for="BrandOrigin" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="AdminBrands" class="btn btn-primary">Quay lại</a> |
+        <input type="submit" class="btn btn-warning" value="Chỉnh sửa thương hiệu" />
+    </div>
+</form>

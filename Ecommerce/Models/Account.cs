@@ -21,7 +21,7 @@ public partial class Account
 
     public int? AccountRoleId { get; set; }
 
-    public virtual Role? AccountRole { get; set; }
+    public string? Salt { get; set; }
 
-    public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+    public virtual Role? AccountRole { get; set; }
 }

@@ -1,0 +1,113 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Ecommerce.Models.Product>
+
+@{
+    Brand brand = ViewBag.CurrentBrand;
+    ViewData["Title"] = brand.BrandName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+    List<Brand> Brands = ViewBag.Brand;
+    List<Category> Cats = ViewBag.Category;
+}
+
+<div class="main-container grid-6-col">
+    <div class="sidebar">
+        <div class="sidebar-category" style="line-height: 30px;">
+            <div class="side-bar-title" style="margin-top: 20px;">
+                <h2 class="fw-600">DANH MỤC</h2>
+            </div>
+            <div class="side-bar-category">
+                @if (Cats != null && Cats.Count() > 0)
+                {
+                    foreach (var item in Cats)
+                    {
+                        string urlCat = $"/Category/{item.CategorySlug}";
+                        <div class="category-sb"><a href="@urlCat" class="cyan-link heavy-link">@item.CategoryName</a></div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="sidebar-filter" style="margin-top: 20px;">
+            <div class="side-bar-title">
+                <h2 class="fw-600">THƯƠNG HIỆU</h2>
+            </div>
+            <div class="brand-filter">
+                <div class="brand-choose" style="line-height: 30px;">
+                    @if (Brands != null && Brands.Count() > 0)
+                    {
+                        foreach (var item in Brands)
+                        {
+                            string urlBrand = $"/Brand/{item.BrandName}";
+                            <div class="category-sb"><a href="@urlBrand" class="cyan-link heavy-link">@item.BrandName</a></div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list">
+        <div class="product-list-header">
+            <div class="product-list-title">
+                <h1 class="section-txt-title txt-bold" style="margin-top: 15px;">Sản phẩm thương hiệu @brand.BrandName</h1>
+            </div>
+            <div class="product-list-filter">
+                <div class="product-list-filter-content right">
+                    <label>Sắp xếp theo: </label>
+                    <select>
+                        <option value="1">Giá thấp đến cao</option>
+                        <option value="2">Giá cao đến thấp</option>
+                        <option value="3">A - Z</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="product-list-content grid-4-col">
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    if (item.IsActive == true)
+                    {
+                        string url = $"/Product/{item.ProductSlug}-{item.ProductId}.html";
+                        <div class="preview-product">
+                            <div class="product-ping width-common relative">
+                                <a href="@url" class="image-common relative">
+                                    <div class="product-img sale">
+                                        <img src="@item.ProductImage" alt="" height="220" width="220">
+                                        <span class="sale-percent">@Math.Round((decimal)(Math.Round(Decimal.Divide((decimal)item.ProductDiscountPrice, (decimal)item.ProductOriginalPrice), 1) * 100))%</span>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="width-common price-block">
+                                            <strong class="discount-price txt-16">@item.ProductDiscountPrice.Value.ToString("#,##0") &#8363;</strong>
+                                            <span class="original-price txt-12 right">@item.ProductOriginalPrice.Value.ToString("#,##0") &#8363;</span>
+                                        </div>
+                                        <div class="product-name-block">
+                                            <h3 class="width-common pr-name sp-bottom-5">
+                                                <div class="product-name cyan-link">@item.ProductName</div>
+                                            </h3>
+                                        </div>
+                                        <div class="rate-block">
+                                            <span class="rate-star left"><i class="fa-solid fa-star"></i></span>
+                                            <span class="sold-product-number right">Đã bán: 100+</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+
+        <div class="pagination-area pt-10 text-center" style="margin-top: 30px;">
+            <ul class="pagination justify-content-center mx-auto">
+                <pager class="pager-container" list="@Model" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" asp-area="" asp-controller="Product" asp-action="Index" />
+            </ul>
+        </div>
+
+    </div>
+</div>
+</div>
+

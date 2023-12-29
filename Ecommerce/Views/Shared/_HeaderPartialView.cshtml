@@ -2,19 +2,19 @@
 <div class="header-wrapper">
     <div class="header-container">
         <div class="logo-site">
-            <a asp-action="Index" class="logo">
+            <a href="/" class="logo">
                 <img src="~/user_assets/logo.svg" alt="logo">
             </a>
         </div>
 
         <div class="search-site">
             <div class="suggested-keywords">
-                <a href="" class="white-anchor heavy-link">Nước tẩy trang</a>
-                <a href="" class="white-anchor heavy-link">Kem chống nắng</a>
-                <a href="" class="white-anchor heavy-link">Toner</a>
-                <a href="" class="white-anchor heavy-link">Sữa rửa mặt</a>
-                <a href="" class="white-anchor heavy-link">Tẩy tế bào chết</a>
-                <a href="" class="white-anchor heavy-link">Cushion</a>
+                <a href="/SubCategory/tay-trang" class="white-anchor heavy-link">Tẩy trang</a>
+                <a href="/SubCategory/chong-nang" class="white-anchor heavy-link">Chống nắng</a>
+                <a href="/SubCategory/toner" class="white-anchor heavy-link">Toner</a>
+                <a href="/SubCategory/sua-rua-mat" class="white-anchor heavy-link">Sữa rửa mặt</a>
+                <a href="/SubCategory/dau-goi" class="white-anchor heavy-link">Dầu gội</a>
+                <a href="/SubCategory/cushion" class="white-anchor heavy-link">Cushion</a>
             </div>
 
             <div class="search-cart">
@@ -25,24 +25,36 @@
                     </button>
                 </form>
                 <div class="item-header cart">
-                    <a href="" class="white-anchor">
-                        <img src="~/user_assets/cart-icon.svg" alt="">
+                    <a href="/cart.html" class="white-anchor">
+                        <img src="~/user_assets/cart-icon.svg" alt="Cart">
                     </a>
                 </div>
                 <div class="item-header support">
-                    <a href="" class="white-anchor">
-                        <img src="~/user_assets/phone-icon.svg" alt="">
+                    <a href="/contact.html" class="white-anchor">
+                        <img src="~/user_assets/phone-icon.svg" alt="Support">
                     </a>
-                    <a asp-controller="Home" asp-action="Contact" class="white-anchor heavy-link">Hỗ trợ <br> khách hàng</a>
+                    <a href="/contact.html" class="white-anchor heavy-link">Hỗ trợ <br> khách hàng</a>
                 </div>
                 <div class="item-header login-register">
-                    <a href="" class="white-anchor">
+                    <a href="/my-account.html" class="white-anchor">
                         <img src="~/user_assets/login-icon.svg" alt="">
                     </a>
                     <div class="text">
-                        <a href="" class="white-anchor heavy-link">Đăng nhập</a>
-                        <br>
-                        <a href="" class="white-anchor heavy-link">Đăng ký</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            string customerName = @User.Identity.Name;
+                            string[] nameParts = customerName.Split(' ');
+                            string firstName = nameParts[0];
+                            <a href="/my-account.html" class="white-anchor heavy-link">Xin chào, <strong>@firstName</strong></a>
+                            <br>
+                            <a href="/log-out.html" class="white-anchor heavy-link">Đăng xuất</a>
+                        }
+                        else
+                        {
+                            <a href="/login.html" class="white-anchor heavy-link">Đăng nhập</a>
+                            <br>
+                            <a href="/register.html" class="white-anchor heavy-link">Đăng ký</a>
+                        } 
                     </div>
                 </div>
 

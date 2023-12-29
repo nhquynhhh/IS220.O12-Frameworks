@@ -35,7 +35,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên danh mục</th>
-                        <th>Số lượng sản phẩm</th>
                         <th>Ngày chỉnh sửa</th>
                         <th>Tùy chọn</th>
                     </tr>
@@ -52,7 +51,6 @@
                                         <h6 class="m-b-0" style="max-width:250px;">@item.SubCategoryName</h6>
                                     </div>
                                 </td>
-                                <td>@item.ProductCount</td>
                                 <td>@item.SubCategoryModifiedDate</td>
                                 <td>
                                     <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminSubCategories" asp-action="Details" asp-route-id="@item.SubCategoryId">Chi tiết</a>

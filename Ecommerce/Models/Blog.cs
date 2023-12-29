@@ -7,11 +7,11 @@ public partial class Blog
 {
     public int BlogId { get; set; }
 
-    public string BlogTitle { get; set; } = null!;
+    public string? BlogTitle { get; set; }
 
     public string? BlogImage { get; set; }
 
-    public string BlogSummary { get; set; } = null!;
+    public string? BlogSummary { get; set; }
 
     public string BlogContent { get; set; } = null!;
 

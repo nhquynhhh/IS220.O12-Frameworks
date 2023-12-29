@@ -29,7 +29,11 @@ public partial class Customer
 
     public bool? IsActive { get; set; }
 
-    public virtual Account? Account { get; set; }
+    public string? Salt { get; set; }
+
+    public string? CustomerPassword { get; set; }
+
+    public DateTime? CustomerLastLogin { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 

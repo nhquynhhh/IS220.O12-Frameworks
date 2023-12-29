@@ -1,0 +1,112 @@
+﻿@model Ecommerce.Models.Customer
+
+@{
+    ViewData["Title"] = "Tài khoản của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Order> lsOrders = ViewBag.DonHang;
+}
+
+<h3 class="txt-cyan text-center" style="font-weight: 600;">Tài khoản của tôi</h3>
+
+<div style="padding: 20px 150px 50px 150px;">
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="avatar avatar-image rounded" style="height: 80px; width: 80px">
+                    <img src="@Model.CustomerAvatar" alt="@Model.CustomerName" >
+                </div><br />
+                <div class="m-l-15">
+                    <h5 class="m-b-0 txt-cyan" style="font-size: 25px;">@Model.CustomerName</h5>
+                    <p class="text-muted m-b-0">ID khách hàng: @Model.CustomerId</p>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#info-basic">Thông tin khách hàng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#order-list">Danh sách đơn hàng</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="info-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Tên khách hàng</label>
+                        <div class="form-control">@Model.CustomerName</div>
+                    </div><br />
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Địa chỉ</label>
+                        <div class="form-control">@Model.CustomerAddress</div>
+                    </div><br />
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold">Số điện thoại</label>
+                            <div class="form-control">@Model.CustomerPhone</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold">Email</label>
+                            <div class="form-control">@Model.CustomerEmail</div>
+                        </div>
+                    </div><br />
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Ngày đăng ký</label>
+                        <div class="form-control">@Model.CustomerJoinDate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="order-list">
+            <div class="card">
+                <div class="card-body">
+                    @if (lsOrders != null && lsOrders.Count() > 0)
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover e-commerce-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Ngày</th>
+                                        <th>Thành tiền</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in lsOrders)
+                                    {
+                                        <tr>
+                                            <td>
+                                                #5331
+                                            </td>
+                                            <td>8 May 2019</td>
+                                            <td>$137.00</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                                    <div>Approved</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <button class="btn btn-success">Xem đơn hàng</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Chưa có đơn hàng.</p>
+                    }
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

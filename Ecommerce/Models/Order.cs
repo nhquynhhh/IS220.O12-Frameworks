@@ -13,8 +13,6 @@ public partial class Order
 
     public int? ShippingFee { get; set; }
 
-    public int? DiscountId { get; set; }
-
     public int? DiscountPrice { get; set; }
 
     public int? GrandPrice { get; set; }
@@ -32,8 +30,6 @@ public partial class Order
     public string? OrderStatus { get; set; }
 
     public virtual Customer? Customer { get; set; }
-
-    public virtual Discount? Discount { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

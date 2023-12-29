@@ -1,0 +1,89 @@
+﻿@model Ecommerce.ModelViews.RegisterVM
+
+@{
+    ViewData["Title"] = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header-wrapper white fixed">
+    <div class="header-container" style="display: flex;">
+        <div class="logo-site">
+            <a href="/" class="logo">
+                <img src="~/user_assets/color-logo.svg" alt="logo">
+            </a>
+        </div>
+        <div class="page-header">
+            <h2 class="section-txt-title" style="font-weight: 700; margin-top: 25px;">Đăng ký</h2>
+        </div>
+    </div>
+</div>
+
+<div class="signup-wrapper">
+    <div class="signup">
+        <div class="txt-divider">Đăng ký</div>
+        <form class="signup-form active-form" asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="AccountName" style="font-weight: 400;">Họ và tên</label><br>
+            <input type="text" asp-for="AccountName" placeholder="Nhập họ và tên">
+            <span asp-validation-for="AccountName" class="text-danger" style="font-size: 12px;"></span><br><br />
+
+            <label asp-for="AccountEmail" style="font-weight: 400;">Email</label><br>
+            <input type="email" asp-for="AccountEmail" placeholder="Nhập email">
+            <span asp-validation-for="Phone" class="text-danger" style="font-size: 12px;"></span><br><br />
+
+            <label asp-for="Phone" style="font-weight: 400;">Số điện thoại</label><br>
+            <input type="tel" asp-for="Phone" placeholder="Nhập số điện thoại">
+            <span asp-validation-for="Phone" class="text-danger" style="font-size: 12px;"></span><br><br />
+
+            <label asp-for="AccountPassword" style="font-weight: 400;">Mật khẩu</label><br>
+            <input type="password" asp-for="AccountPassword" class="password-hide-1" placeholder="Nhập mật khẩu"><i class="fa-regular fa-eye-slash txt-cyan reveal-pass-1" onclick="togglePassword1()"></i>
+            <span asp-validation-for="AccountPassword" class="text-danger" style="font-size: 12px;"></span><br><br />
+            
+            <label asp-for="ConfirmPassword" style="font-weight: 400;">Xác nhận mật khẩu</label><br>
+            <input type="password" asp-for="ConfirmPassword" class="password-hide-2" placeholder="Nhập lại mật khẩu"><i class="fa-regular fa-eye-slash txt-cyan reveal-pass-2" onclick="togglePassword2()"></i>
+            <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size: 12px;"></span><br><br />
+
+            <hr style="width: 70%; height: 1px; background-color: var(--black); border: none; margin: 20px auto;">
+            <div class="create-acc txt-center">
+                <span>Bạn đã có tài khoản? <a href="/login.html" class="txt-cyan orange-link">Đăng nhập</a></span>
+            </div><br />
+
+            <button class="txt-uppercase" id="btn-continue-signup">Đăng ký</button>
+        </form>
+    </div>
+</div>
+
+<footer style="background-color: white; color: var(--cyan);">
+    <div class="footer-copyright txt-center" style="font-weight: 400;">Copyright by PING Cosmetics - Based in Ho Chi Minh City</div>
+    <div class="footer-hotline txt-center">Hotline: 012345678</div>
+</footer>
+
+@section Scripts{
+    <script>
+        function togglePassword1() {
+            var x = document.querySelector(".password-hide-1");
+            var eyeIcon = document.querySelector(".reveal-pass-1");
+            if (x.type === "password") {
+                x.type = "text";
+                eyeIcon.className = "fa-regular fa-eye txt-cyan reveal-pass-1"
+            } else {
+                x.type = "password";
+                eyeIcon.className = "fa-regular fa-eye-slash txt-cyan reveal-pass-1"
+            }
+        }
+
+        function togglePassword2() {
+            var x = document.querySelector(".password-hide-2");
+            var eyeIcon = document.querySelector(".reveal-pass-2");
+            if (x.type === "password") {
+                x.type = "text";
+                eyeIcon.className = "fa-regular fa-eye txt-cyan reveal-pass-2"
+            } else {
+                x.type = "password";
+                eyeIcon.className = "fa-regular fa-eye-slash txt-cyan reveal-pass-2"
+            }
+        }
+    </script>
+    
+}

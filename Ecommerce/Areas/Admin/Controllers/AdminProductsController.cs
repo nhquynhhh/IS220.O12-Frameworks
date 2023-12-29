@@ -163,9 +163,14 @@ namespace Ecommerce.Areas.Admin.Controllers
                 product.IsFlashSale = false;
                 product.ProductCreatedDate = DateTime.Now;
                 product.ProductModifiedDate = DateTime.Now;
+                product.ProductSoldQuantity = 0;
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+
+                UpdateCategoryProductCount(product.ProductSubCategoryId);
+                UpdateSubCategoryProductCount(product.ProductCategoryId);
+
                 _notyfService.Success("Thêm mới sản phẩm thành công");
                 return RedirectToAction(nameof(Index));
             }
@@ -233,8 +238,12 @@ namespace Ecommerce.Areas.Admin.Controllers
                     product.ProductModifiedDate = DateTime.Now;
 
                     _context.Update(product);
-                    _notyfService.Success("Chỉnh sửa sản phẩm thành công");
                     await _context.SaveChangesAsync();
+
+                    UpdateCategoryProductCount(product.ProductSubCategoryId);
+                    UpdateSubCategoryProductCount(product.ProductCategoryId);
+
+                    _notyfService.Success("Chỉnh sửa sản phẩm thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -289,6 +298,36 @@ namespace Ecommerce.Areas.Admin.Controllers
         private bool ProductExists(int id)
         {
           return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+        }
+
+        private void UpdateCategoryProductCount(int? categoryId)
+        {
+            var updatedCategory = _context.Categories
+                .Where(c => c.CategoryId == categoryId)
+                .FirstOrDefault();
+
+            if (updatedCategory != null)
+            {
+                updatedCategory.ProductCount = _context.Products
+                    .Count(p => p.ProductCategoryId == categoryId);
+
+                _context.SaveChanges();
+            }
+        }
+
+        private void UpdateSubCategoryProductCount(int? subCategoryId)
+        {
+            var updatedCategory = _context.SubCategories
+                .Where(c => c.SubCategoryId == subCategoryId)
+                .FirstOrDefault();
+
+            if (updatedCategory != null)
+            {
+                updatedCategory.ProductCount = _context.Products
+                    .Count(p => p.ProductSubCategoryId == subCategoryId);
+
+                _context.SaveChanges();
+            }
         }
     }
 }
