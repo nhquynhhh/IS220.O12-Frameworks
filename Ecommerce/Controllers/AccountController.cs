@@ -232,7 +232,7 @@ namespace Ecommerce.Controllers
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync();
-            HttpContext.Session.Remove("CustomerId");
+            HttpContext.Session.Remove("AccountId");
             _notyfService.Success("Đăng xuất thành công");
             return RedirectToAction("Index", "Home");
         }
